@@ -1,0 +1,544 @@
+import Image from "next/image";
+import { FAQ } from "@/components/FAQ";
+import { ImagePlaceholder } from "@/components/ImagePlaceholder";
+import { PhoneMockups } from "@/components/PhoneMockups";
+import { RevealHeading } from "@/components/RevealHeading";
+import { SafePhoto } from "@/components/SafePhoto";
+import { SideNav } from "@/components/SideNav";
+import { BOOKING_HREF, services, testimonials } from "@/lib/content";
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="mb-4 text-[11px] uppercase tracking-[0.22em] text-accent">
+      {children}
+    </p>
+  );
+}
+
+export default function Home() {
+  return (
+    <>
+      <SideNav />
+
+      <main className="lg:pl-56">
+        {/* HERO */}
+        <section
+          id="top"
+          className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden pt-20"
+        >
+          <div className="absolute inset-0">
+            <Image
+              src="/images/kai-hero.png"
+              alt="Kai Tranchant pulling a resistance sled in the gym"
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(240,235,228,0.05)_0%,rgba(240,235,228,0.15)_50%,rgba(240,235,228,0.78)_82%,rgba(240,235,228,0.94)_100%)]" />
+          </div>
+          <div className="relative z-10 px-5 pb-14 pt-24 sm:px-10 lg:pb-20">
+            <RevealHeading
+              as="p"
+              className="mb-3 font-serif text-lg tracking-tight text-foreground italic sm:text-xl lg:text-2xl"
+              staggerMs={22}
+              segments={[{ text: "Kai Tranchant" }]}
+            />
+            <RevealHeading
+              as="h1"
+              className="max-w-3xl font-display text-[2.15rem] font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl sm:leading-[1.05] lg:text-6xl xl:text-7xl"
+              staggerMs={16}
+              segments={[
+                { text: "Train Like an Athlete —" },
+                {
+                  text: "Whatever That Means for You",
+                  className:
+                    "mt-1 block whitespace-nowrap font-serif text-[0.65em] font-normal italic leading-snug text-[rgba(28,25,21,0.62)]",
+                },
+              ]}
+            />
+            <p className="animate-fade-up-delay-2 mt-6 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
+              Get stronger, move better, and perform at your best — whether
+              that&apos;s on the field, in the gym, or in everyday life.
+            </p>
+            <div className="animate-fade-up-delay-2 mt-8 flex flex-wrap items-center gap-4">
+              <a
+                href={BOOKING_HREF}
+                className="inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold tracking-wide text-accent-ink transition hover:brightness-110"
+              >
+                Book a Session
+              </a>
+              <p className="text-xs uppercase tracking-[0.18em] text-[rgba(28,25,21,0.65)]">
+                First consult is free
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ABOUT */}
+        <section id="about" className="scroll-mt-24 px-5 py-20 sm:px-10 lg:py-28">
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+            <div className="relative aspect-[3/4] w-full overflow-hidden border border-border">
+              <Image
+                src="/images/kai-about-sled4.png"
+                alt="Kai Tranchant pushing a resistance sled in the gym"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+            </div>
+            <div>
+              <SectionLabel>About</SectionLabel>
+              <RevealHeading
+                as="h2"
+                className="font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+                segments={[
+                  {
+                    text: "Strength & performance coaching — for athletes, and anyone who wants to train like one.",
+                  },
+                ]}
+              />
+              <div className="mt-8 space-y-5 text-base leading-relaxed text-muted sm:text-lg">
+                <p>
+                  I train people to move, perform, and feel like athletes —
+                  whether you&apos;re competing in your sport, chasing a hybrid
+                  physique, or rebuilding strength after injury, pregnancy, or
+                  menopause. Same principles: build real strength, move well, and
+                  get stronger for life.
+                </p>
+                <p>
+                  I&apos;ve spent 4 years coaching clients — across 1,000+
+                  sessions — 3 of those focused on sport-specific strength &amp;
+                  conditioning, and more than a decade deep in sports and
+                  nutrition. I&apos;m a CPT, wrapping up a bachelor&apos;s in
+                  exercise science — and still the person who gets weirdly
+                  excited about a clean hip hinge.
+                </p>
+                <p>
+                  Just as important to me: helping people come back strong after
+                  life gets in the way — postpartum, menopause, injury, time off.
+                  Same athletic standards, just meeting you where you are.
+                </p>
+              </div>
+              <ul className="mt-10 grid gap-3 text-sm text-foreground sm:grid-cols-2">
+                <li className="border-t border-border pt-3">CPT certified</li>
+                <li className="border-t border-border pt-3">
+                  BA in Exercise Science (in progress)
+                </li>
+                <li className="border-t border-border pt-3">
+                  1,000+ sessions coached
+                </li>
+                <li className="border-t border-border pt-3">
+                  3 years athlete S&amp;C
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* SERVICES */}
+        <section
+          id="services"
+          className="scroll-mt-24 border-t border-border bg-surface px-5 py-20 sm:px-10 lg:py-28"
+        >
+          <div className="mx-auto max-w-6xl">
+            <SectionLabel>Services + Pricing</SectionLabel>
+            <RevealHeading
+              as="h2"
+              className="font-display max-w-[18ch] text-3xl font-semibold leading-tight tracking-tight sm:max-w-xl sm:text-4xl lg:max-w-2xl lg:text-5xl"
+              segments={[
+                { text: "Transparent pricing," },
+                {
+                  text: "built around how you train.",
+                  className: "block",
+                },
+              ]}
+            />
+            <p className="mt-5 max-w-xl text-base text-muted sm:text-lg">
+              Every session runs about 60 minutes — warm-up, guided work on a
+              program built for your goals, then cool-down and stretching.
+            </p>
+
+            <div className="mt-14 space-y-10">
+              {services.map((service) => (
+                <article
+                  key={service.name}
+                  className="grid gap-6 border-t border-border pt-10 lg:grid-cols-[1fr_1fr]"
+                >
+                  <div>
+                    <RevealHeading
+                      as="h3"
+                      className="font-display text-2xl font-semibold tracking-tight sm:text-3xl"
+                      segments={[{ text: service.name }]}
+                    />
+                    <p className="mt-4 max-w-md text-muted">{service.blurb}</p>
+                    <p className="mt-3 text-xs uppercase tracking-[0.16em] text-muted">
+                      {service.details}
+                    </p>
+                  </div>
+                  <div className="space-y-3">
+                    {service.tiers.map((tier) => {
+                      const popular = "popular" in tier && tier.popular;
+                      return (
+                        <div
+                          key={tier.label}
+                          className={`flex items-baseline justify-between gap-4 border-b pb-3 ${
+                            popular ? "border-accent/35" : "border-border"
+                          }`}
+                        >
+                          <span className="flex flex-wrap items-center gap-2 text-sm text-muted sm:text-base">
+                            {tier.label}
+                            {popular ? (
+                              <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-accent-ink">
+                                Most popular
+                              </span>
+                            ) : null}
+                          </span>
+                          <span className="font-display text-xl font-semibold text-foreground sm:text-2xl">
+                            {tier.price}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-12">
+              <a
+                href={BOOKING_HREF}
+                className="inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink transition hover:brightness-110"
+              >
+                Book a Session
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* SOFTWARE */}
+        <section
+          id="software"
+          className="scroll-mt-24 px-5 py-20 sm:px-10 lg:py-28"
+        >
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:items-center">
+            <div>
+              <SectionLabel>SwiftCoach</SectionLabel>
+              <RevealHeading
+                as="h2"
+                className="font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+                segments={[
+                  {
+                    text: "Workouts, progress, nutrition, recovery — one place.",
+                  },
+                ]}
+              />
+              <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
+                Clients get access to SwiftCoach — the training &amp; coaching
+                app I built. Track workouts, progress, nutrition, recovery, and
+                health in one dashboard so you always know what to do next.
+              </p>
+              <ul className="mt-8 space-y-3 text-sm text-foreground sm:text-base">
+                <li className="flex gap-3">
+                  <span className="text-accent">→</span>
+                  Custom workouts &amp; session logging
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-accent">→</span>
+                  Progress &amp; health metrics in one dashboard
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-accent">→</span>
+                  Nutrition tracking tied to your plan
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-accent">→</span>
+                  Recovery tracking alongside your training
+                </li>
+              </ul>
+            </div>
+            <PhoneMockups />
+          </div>
+        </section>
+
+        {/* RESULTS / SOCIAL PROOF */}
+        <section
+          id="results"
+          className="scroll-mt-24 border-t border-border bg-surface px-5 py-20 sm:px-10 lg:py-28"
+        >
+          <div className="mx-auto max-w-6xl">
+            <SectionLabel>Social Proof</SectionLabel>
+            <RevealHeading
+              as="h2"
+              className="font-display max-w-2xl text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+              segments={[
+                { text: "Results that show up in sport and life." },
+              ]}
+            />
+
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {testimonials.map((t) => (
+                <blockquote
+                  key={t.name}
+                  className="border-t border-border pt-6"
+                >
+                  <div className="mb-5 flex items-center gap-3">
+                    {"photo" in t && t.photo ? (
+                      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl border border-border sm:h-20 sm:w-20">
+                        <SafePhoto
+                          src={t.photo}
+                          alt={t.name}
+                          className="object-cover object-center"
+                          sizes="80px"
+                        />
+                      </div>
+                    ) : (
+                      <ImagePlaceholder
+                        label="Client photo"
+                        className="h-16 w-16 shrink-0 rounded-2xl sm:h-20 sm:w-20"
+                        ratio="aspect-square"
+                      />
+                    )}
+                    <div>
+                      <p className="text-sm text-foreground">{t.name}</p>
+                      <p className="text-xs text-muted">{t.role}</p>
+                    </div>
+                  </div>
+                  <p className="text-sm leading-relaxed text-muted sm:text-base">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                </blockquote>
+              ))}
+            </div>
+
+            {/* Transformations — hidden until real before/after photos are ready */}
+          </div>
+        </section>
+
+        {/* LOCATIONS */}
+        <section
+          id="locations"
+          className="scroll-mt-24 px-5 py-14 sm:px-10 lg:py-20"
+        >
+          <div className="mx-auto max-w-6xl">
+            <SectionLabel>Locations &amp; Logistics</SectionLabel>
+            <RevealHeading
+              as="h2"
+              className="font-display max-w-2xl text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+              segments={[
+                {
+                  text: "In your home around the Twin Tiers — or online from anywhere.",
+                },
+              ]}
+            />
+            <div className="mt-8 grid gap-8 border-t border-border pt-8 sm:grid-cols-3 sm:gap-6">
+              <div>
+                <svg
+                  aria-hidden
+                  viewBox="0 0 24 24"
+                  className="mb-3 h-5 w-5 text-accent"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1v-10.5Z" />
+                </svg>
+                <p className="text-xs uppercase tracking-[0.18em] text-muted">
+                  In-home
+                </p>
+                <p className="mt-3 font-display text-2xl font-semibold tracking-tight">
+                  Horseheads · Elmira · Corning
+                </p>
+                <p className="mt-3 text-sm text-muted">
+                  I train at your place. Bring whatever space and gear you have —
+                  bodyweight, a garage rack, or just a yoga mat. We&apos;ll make
+                  it work.
+                </p>
+              </div>
+              <div>
+                <svg
+                  aria-hidden
+                  viewBox="0 0 24 24"
+                  className="mb-3 h-5 w-5 text-accent"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M3 12h18" />
+                  <path d="M12 3c2.5 2.8 3.8 6 3.8 9s-1.3 6.2-3.8 9c-2.5-2.8-3.8-6-3.8-9s1.3-6.2 3.8-9Z" />
+                </svg>
+                <p className="text-xs uppercase tracking-[0.18em] text-muted">
+                  Online
+                </p>
+                <p className="mt-3 font-display text-2xl font-semibold tracking-tight">
+                  Coached from anywhere
+                </p>
+                <p className="mt-3 text-sm text-muted">
+                  Follow your program at home or the gym. Consults and check-ins
+                  happen over Zoom.
+                </p>
+              </div>
+              <div>
+                <svg
+                  aria-hidden
+                  viewBox="0 0 24 24"
+                  className="mb-3 h-5 w-5 text-accent"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v5l3.5 2" />
+                </svg>
+                <p className="text-xs uppercase tracking-[0.18em] text-muted">
+                  Session length
+                </p>
+                <p className="mt-3 font-display text-2xl font-semibold tracking-tight">
+                  60 minutes
+                </p>
+                <p className="mt-3 text-sm text-muted">
+                  Warm-up → custom guided work → cool-down / stretch. The full
+                  personal training experience.
+                </p>
+              </div>
+            </div>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <a
+                href={BOOKING_HREF}
+                className="inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink transition hover:brightness-110"
+              >
+                Book a Session
+              </a>
+              <a
+                href="#services"
+                className="text-sm text-muted underline-offset-4 transition hover:text-foreground hover:underline"
+              >
+                See pricing
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section
+          id="faq"
+          className="scroll-mt-24 border-t border-border bg-surface-2 px-5 py-20 sm:px-10 lg:py-28"
+        >
+          <div className="mx-auto max-w-3xl">
+            <SectionLabel>FAQ</SectionLabel>
+            <RevealHeading
+              as="h2"
+              className="font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl"
+              segments={[
+                { text: "The stuff people usually ask before they book." },
+              ]}
+            />
+            <div className="mt-10">
+              <FAQ />
+            </div>
+          </div>
+        </section>
+
+        {/* BOOK / CONTACT */}
+        <section
+          id="book"
+          className="scroll-mt-24 border-t-2 border-[rgba(28,25,21,0.28)] bg-background px-5 py-20 sm:px-10 lg:py-28"
+        >
+          <div className="mx-auto max-w-6xl">
+            <SectionLabel>Book</SectionLabel>
+            <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
+              <div>
+                <RevealHeading
+                  as="h2"
+                  className="font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+                  segments={[{ text: "Ready to train like an athlete?" }]}
+                />
+                <p className="mt-5 max-w-lg text-base text-muted sm:text-lg">
+                  Your first consult is free. We&apos;ll talk goals, logistics,
+                  and the right plan — then get you into SwiftCoach and
+                  training.
+                </p>
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <a
+                    href={BOOKING_HREF}
+                    className="inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink transition hover:brightness-110"
+                  >
+                    Book a Session
+                  </a>
+                  <a
+                    href="https://instagram.com/kaitranchant"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-muted underline-offset-4 transition hover:text-foreground hover:underline"
+                  >
+                    Follow on Instagram
+                  </a>
+                </div>
+                <p className="mt-4 text-sm text-muted">
+                  I typically respond within 24 hours.
+                </p>
+              </div>
+              <div className="space-y-5 border-t border-border pt-6 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.18em] text-muted">
+                    Email
+                  </p>
+                  <a
+                    href="mailto:kaitranchant@gmail.com"
+                    className="mt-2 block text-foreground transition hover:text-accent"
+                  >
+                    kaitranchant@gmail.com
+                  </a>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.18em] text-muted">
+                    Phone
+                  </p>
+                  <a
+                    href="tel:+16073028491"
+                    className="mt-2 block text-foreground transition hover:text-accent"
+                  >
+                    (607) 302-8491
+                  </a>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.18em] text-muted">
+                    Instagram
+                  </p>
+                  <a
+                    href="https://instagram.com/kaitranchant"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 block text-foreground transition hover:text-accent"
+                  >
+                    @kaitranchant
+                  </a>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.18em] text-muted">
+                    Based in
+                  </p>
+                  <p className="mt-2 text-foreground">Horseheads, NY</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer className="border-t border-border px-5 py-8 sm:px-10">
+          <div className="mx-auto flex max-w-6xl flex-col gap-3 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+            <p>© {new Date().getFullYear()} Kai Tranchant. All rights reserved.</p>
+            <p>kaitranchant.com</p>
+          </div>
+        </footer>
+      </main>
+    </>
+  );
+}

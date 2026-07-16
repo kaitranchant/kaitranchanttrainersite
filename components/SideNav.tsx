@@ -6,6 +6,7 @@ import { BOOKING_HREF, navItems } from "@/lib/content";
 export function SideNav() {
   const [active, setActive] = useState("top");
   const [open, setOpen] = useState(false);
+  const [showFab, setShowFab] = useState(false);
 
   useEffect(() => {
     const sections = navItems
@@ -28,6 +29,39 @@ export function SideNav() {
     );
 
     sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const hero = document.getElementById("top");
+    const targets = [
+      ...(hero ? [hero] : []),
+      ...Array.from(document.querySelectorAll<HTMLElement>("[data-book-cta]")),
+    ];
+
+    if (!targets.length) return;
+
+    const visibility = new Map<Element, boolean>();
+    const update = () => {
+      const anyVisible = [...visibility.values()].some(Boolean);
+      setShowFab(!anyVisible);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          visibility.set(entry.target, entry.isIntersecting);
+        }
+        update();
+      },
+      { threshold: 0, rootMargin: "-12% 0px 0px 0px" },
+    );
+
+    for (const el of targets) {
+      visibility.set(el, false);
+      observer.observe(el);
+    }
+
     return () => observer.disconnect();
   }, []);
 
@@ -56,7 +90,7 @@ export function SideNav() {
         <div className="flex items-center gap-3">
           <a
             href={BOOKING_HREF}
-            className="hidden rounded-full bg-accent px-4 py-2 text-sm font-semibold tracking-wide text-accent-ink transition hover:brightness-110 sm:inline-flex"
+            className="btn-accent hidden rounded-full bg-accent px-4 py-2 text-sm font-semibold tracking-wide text-accent-ink sm:inline-flex"
           >
             Book a Session
           </a>
@@ -136,7 +170,7 @@ export function SideNav() {
           <a
             href={BOOKING_HREF}
             onClick={() => setOpen(false)}
-            className="mt-10 inline-flex rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-ink"
+            className="btn-accent mt-10 inline-flex rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-ink"
           >
             Book a Session
           </a>
@@ -145,7 +179,13 @@ export function SideNav() {
 
       <a
         href={BOOKING_HREF}
-        className="fixed bottom-5 right-5 z-40 inline-flex rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-ink shadow-[0_10px_40px_rgba(125,150,166,0.35)] transition hover:brightness-110 sm:hidden"
+        aria-hidden={!showFab}
+        tabIndex={showFab ? 0 : -1}
+        className={`btn-accent fixed bottom-5 right-5 z-40 inline-flex rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-ink shadow-[0_10px_40px_rgba(125,150,166,0.35)] transition-all duration-300 sm:hidden ${
+          showFab
+            ? "translate-y-0 opacity-100"
+            : "pointer-events-none translate-y-3 opacity-0"
+        }`}
       >
         Book a Session
       </a>

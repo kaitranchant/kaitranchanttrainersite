@@ -4,11 +4,12 @@
   --background: #f0ebe4;
   --foreground: #1c1915;
   --muted: #6e675e;
-  --surface: #e5dfd6;
+  --surface: #eee9e2;
   --surface-2: #ddd6cb;
   --border: rgba(28, 25, 21, 0.2);
   --accent: #7d96a6;
   --accent-ink: #0b1014;
+  --radius-media: 1rem;
 }
 
 @theme inline {
@@ -33,11 +34,39 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-manrope), system-ui, sans-serif;
+  line-height: 1.55;
 }
 
 ::selection {
   background: var(--accent);
   color: var(--accent-ink);
+}
+
+.rounded-media {
+  border-radius: var(--radius-media);
+}
+
+.btn-accent {
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.btn-accent:hover {
+  filter: brightness(1.08);
+}
+
+.btn-accent:active {
+  transform: scale(0.97);
+}
+
+.tap-row {
+  transition: background-color 0.18s ease;
+}
+
+.tap-row:active {
+  background-color: rgba(28, 25, 21, 0.05);
 }
 
 @keyframes fade-up {
@@ -74,6 +103,16 @@ body {
 
 .animate-fade-in {
   animation: fade-in 1.2s ease-out both;
+}
+
+.reveal-block {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.reveal-block[data-play="true"] {
+  animation: fade-up 0.9s ease-out both;
+  animation-delay: var(--reveal-delay, 0ms);
 }
 
 .placeholder-media {
@@ -134,7 +173,7 @@ body {
 }
 
 .reveal-heading[data-play="true"] .reveal-char {
-  animation: reveal-char-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: reveal-char-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: var(--reveal-delay, 0ms);
 }
 
@@ -158,6 +197,13 @@ body {
   .animate-fade-up-delay,
   .animate-fade-up-delay-2,
   .animate-fade-in {
+    animation: none !important;
+  }
+
+  .reveal-block,
+  .reveal-block[data-play="true"] {
+    opacity: 1 !important;
+    transform: none !important;
     animation: none !important;
   }
 

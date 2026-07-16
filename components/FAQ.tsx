@@ -14,7 +14,7 @@ export function FAQ() {
           <div key={item.q}>
             <button
               type="button"
-              className="group flex min-h-[3.25rem] w-full items-center justify-between gap-4 py-4 text-left transition hover:bg-[rgba(28,25,21,0.03)] sm:gap-6 sm:py-5"
+              className="tap-row group flex min-h-[3.25rem] w-full items-center justify-between gap-4 py-4 text-left transition hover:bg-[rgba(28,25,21,0.03)] sm:gap-6 sm:py-5"
               aria-expanded={isOpen}
               onClick={() => setOpenIndex(isOpen ? -1 : index)}
             >
@@ -22,7 +22,7 @@ export function FAQ() {
                 {item.q}
               </span>
               <span
-                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-xl leading-none text-foreground transition group-hover:border-accent group-hover:text-accent ${
+                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-xl leading-none text-foreground transition group-hover:border-accent group-hover:text-accent group-active:scale-95 ${
                   isOpen ? "rotate-45 border-accent text-accent" : ""
                 }`}
                 aria-hidden
@@ -32,7 +32,7 @@ export function FAQ() {
             </button>
             <div className="faq-answer" data-open={isOpen}>
               <div>
-                <p className="pb-5 pr-12 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+                <p className="pb-5 pr-12 max-w-2xl text-sm leading-[1.6] text-muted sm:text-base">
                   {item.a}
                 </p>
               </div>

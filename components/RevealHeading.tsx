@@ -1,12 +1,11 @@
 "use client";
 
 import {
-  useEffect,
   useRef,
-  useState,
   type CSSProperties,
   type ElementType,
 } from "react";
+import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
 
 export type RevealSegment = {
   text: string;
@@ -17,8 +16,8 @@ type RevealHeadingProps = {
   as?: ElementType;
   className?: string;
   segments: RevealSegment[];
-  /** Ms between each character appearing */
   staggerMs?: number;
+  eager?: boolean;
 };
 
 function splitWords(text: string) {
@@ -30,56 +29,11 @@ export function RevealHeading({
   className = "",
   segments,
   staggerMs = 18,
+  eager = false,
 }: RevealHeadingProps) {
   const ref = useRef<HTMLElement | null>(null);
-  const [play, setPlay] = useState(false);
+  const play = useRevealOnScroll(ref, { eager });
   const fullText = segments.map((s) => s.text).join("");
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setPlay(true);
-      return;
-    }
-
-    let started = false;
-    let timeoutId = 0;
-
-    const start = () => {
-      if (started) return;
-      started = true;
-      window.clearTimeout(timeoutId);
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setPlay(true);
-        });
-      });
-    };
-
-    // Never leave text permanently invisible
-    timeoutId = window.setTimeout(start, 1200);
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          start();
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0,
-        rootMargin: "0px 0px 0px 0px",
-      },
-    );
-
-    observer.observe(el);
-    return () => {
-      window.clearTimeout(timeoutId);
-      observer.disconnect();
-    };
-  }, []);
 
   let charIndex = 0;
 

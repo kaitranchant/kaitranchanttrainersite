@@ -14,8 +14,8 @@ export function PhoneMockups() {
 
       {/* Back phone — workout (peek) */}
       <div className="absolute left-[2%] top-[8%] z-0 w-[46%] max-w-[200px] rotate-[-7deg] opacity-90 sm:left-[4%] sm:w-[44%]">
-        <div className="rounded-[1.55rem] border border-[rgba(28,25,21,0.18)] bg-[#2a2723] p-[3px] shadow-[0_18px_40px_rgba(28,25,21,0.22),0_0_0_1px_rgba(255,255,255,0.35)]">
-          <div className="overflow-hidden rounded-[1.35rem] bg-black">
+        <div className="rounded-[1.25rem] border border-[rgba(28,25,21,0.18)] bg-[#2a2723] p-[3px] shadow-[0_18px_40px_rgba(28,25,21,0.22),0_0_0_1px_rgba(255,255,255,0.35)]">
+          <div className="overflow-hidden rounded-[1.05rem] bg-black">
             <Image
               src="/images/swiftcoach-workout.png"
               alt="SwiftCoach workout tracking session"
@@ -30,8 +30,8 @@ export function PhoneMockups() {
 
       {/* Front phone — dashboard (fully readable) */}
       <div className="relative z-10 ml-[18%] w-[58%] max-w-[250px] rotate-[3deg] sm:ml-[20%] sm:w-[54%] sm:max-w-[270px]">
-        <div className="rounded-[1.75rem] border border-[rgba(28,25,21,0.2)] bg-[#2a2723] p-[3px] shadow-[0_28px_55px_rgba(28,25,21,0.28),0_0_36px_rgba(125,150,166,0.2),0_0_0_1px_rgba(255,255,255,0.4)]">
-          <div className="overflow-hidden rounded-[1.5rem] bg-black">
+        <div className="rounded-[1.25rem] border border-[rgba(28,25,21,0.2)] bg-[#2a2723] p-[3px] shadow-[0_28px_55px_rgba(28,25,21,0.28),0_0_36px_rgba(125,150,166,0.2),0_0_0_1px_rgba(255,255,255,0.4)]">
+          <div className="overflow-hidden rounded-[1.05rem] bg-black">
             <Image
               src="/images/swiftcoach-dashboard.png"
               alt="SwiftCoach client dashboard"

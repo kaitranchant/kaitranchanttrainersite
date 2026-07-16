@@ -38,60 +38,57 @@ export default function Home() {
     <>
       <SideNav />
 
-      <main className="pb-24 sm:pb-0 lg:pl-56">
+      <main className="pb-24 sm:pb-0">
         {/* HERO */}
         <section
           id="top"
-          className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden pt-20"
+          className="grid min-h-[100svh] lg:grid-cols-2"
         >
-          <div className="absolute inset-0">
+          <div className="relative h-[55svh] overflow-hidden lg:h-auto lg:min-h-[100svh]">
             <Image
               src="/images/kai-hero.png"
               alt="Kai Tranchant pulling a resistance sled in the gym"
               fill
               priority
-              className="object-cover object-center"
-              sizes="100vw"
+              className="object-cover object-[center_28%]"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(240,235,228,0.05)_0%,rgba(240,235,228,0.15)_50%,rgba(240,235,228,0.78)_82%,rgba(240,235,228,0.94)_100%)]" />
           </div>
-          <div className="relative z-10 px-5 pb-16 pt-24 sm:px-10 sm:pb-14 lg:pb-20">
-            <RevealHeading
-              as="p"
-              className="mb-3 font-serif text-lg tracking-tight text-foreground italic sm:text-xl lg:text-2xl"
-              staggerMs={22}
-              eager
-              segments={[{ text: "Kai Tranchant" }]}
-            />
-            <RevealHeading
-              as="h1"
-              className="max-w-3xl font-display text-[2.15rem] font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl sm:leading-[1.05] lg:text-6xl xl:text-7xl"
-              staggerMs={16}
-              eager
-              segments={[
-                { text: "Train Like an Athlete —" },
-                {
-                  text: "Whatever That Means for You",
-                  className:
-                    "mt-2 block whitespace-nowrap font-serif text-[0.65em] font-normal italic leading-snug text-[rgba(28,25,21,0.62)] sm:mt-1",
-                },
-              ]}
-            />
-            <p className="animate-fade-up-delay-2 mt-9 max-w-lg text-base leading-[1.6] text-muted sm:mt-6 sm:text-lg">
-              Get stronger, move better, and perform at your best — whether
-              that&apos;s on the field, in the gym, or in everyday life.
-            </p>
-            <div className="animate-fade-up-delay-2 mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href={BOOKING_HREF}
-                data-book-cta
-                className="btn-accent inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold tracking-wide text-accent-ink"
-              >
-                Book a Session
-              </a>
-              <p className="text-xs uppercase tracking-[0.18em] text-[rgba(28,25,21,0.65)]">
-                First consult is free
+          <div className="flex flex-col justify-center bg-background px-5 py-12 sm:px-10 sm:py-16 lg:px-20 lg:pt-28 lg:pb-20 xl:px-24">
+            <div className="w-full max-w-3xl lg:max-w-none">
+              <RevealHeading
+                as="h1"
+                className="w-full font-display text-[2.35rem] font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl sm:leading-[1.05] lg:text-6xl xl:text-7xl"
+                staggerMs={16}
+                eager
+                segments={[
+                  { text: "Train Like an Athlete —" },
+                  {
+                    text: "Whatever That Means for You",
+                    className:
+                      "mt-2 block font-serif text-[0.68em] font-normal italic leading-snug text-[rgba(28,25,21,0.62)] sm:mt-2 lg:whitespace-nowrap",
+                  },
+                ]}
+              />
+              <p className="animate-fade-up-delay-2 mt-8 max-w-2xl text-base leading-[1.6] text-muted sm:mt-8 sm:text-lg lg:max-w-3xl lg:text-xl">
+                My name is Kai Tranchant. I train people to move, perform, and
+                feel like athletes — whether you&apos;re competing in your sport,
+                chasing a hybrid physique, or rebuilding strength after injury,
+                pregnancy, or menopause. Same principles: build real strength,
+                move well, and get stronger for life.
               </p>
+              <div className="animate-fade-up-delay-2 mt-10 flex flex-wrap items-center gap-4">
+                <a
+                  href={BOOKING_HREF}
+                  data-book-cta
+                  className="btn-accent inline-flex rounded-full bg-accent px-7 py-3.5 text-sm font-semibold tracking-wide text-accent-ink sm:text-base"
+                >
+                  Book a Session
+                </a>
+                <p className="text-xs uppercase tracking-[0.18em] text-[rgba(28,25,21,0.65)]">
+                  First consult is free
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -102,7 +99,7 @@ export default function Home() {
           className="scroll-mt-24 bg-background px-5 py-20 sm:px-10 lg:py-28"
         >
           <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-media border border-border">
+            <div className="relative aspect-[3/4] w-full overflow-hidden border border-border">
               <Image
                 src="/images/kai-about-sled4.png"
                 alt="Kai Tranchant pushing a resistance sled in the gym"

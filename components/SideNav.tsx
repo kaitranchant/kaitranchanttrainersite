@@ -4,33 +4,8 @@ import { useEffect, useState } from "react";
 import { BOOKING_HREF, navItems } from "@/lib/content";
 
 export function SideNav() {
-  const [active, setActive] = useState("top");
   const [open, setOpen] = useState(false);
   const [showFab, setShowFab] = useState(false);
-
-  useEffect(() => {
-    const sections = navItems
-      .map((item) => document.getElementById(item.id))
-      .filter(Boolean) as HTMLElement[];
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target?.id) {
-          setActive(visible.target.id);
-        }
-      },
-      {
-        rootMargin: "-20% 0px -55% 0px",
-        threshold: [0.1, 0.35, 0.6],
-      },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     const hero = document.getElementById("top");
@@ -66,12 +41,6 @@ export function SideNav() {
   }, []);
 
   useEffect(() => {
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, []);
-
-  useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
@@ -80,7 +49,7 @@ export function SideNav() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-40 flex items-center justify-between border-b border-border bg-background/80 px-5 py-4 backdrop-blur-md lg:left-56 lg:px-10">
+      <header className="fixed inset-x-0 top-0 z-40 flex items-center justify-between border-b border-border bg-background/80 px-5 py-4 backdrop-blur-md sm:px-10">
         <a
           href="#top"
           className="font-serif text-xl tracking-tight text-foreground italic sm:text-2xl"
@@ -98,7 +67,7 @@ export function SideNav() {
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="inline-flex h-10 w-10 items-center justify-center border border-border text-foreground lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center border border-border text-foreground"
             onClick={() => setOpen((v) => !v)}
           >
             <span className="sr-only">Menu</span>
@@ -117,45 +86,9 @@ export function SideNav() {
         </div>
       </header>
 
-      <aside className="fixed bottom-0 left-0 top-0 z-30 hidden w-56 flex-col justify-between border-r border-border bg-background px-6 py-8 lg:flex">
-        <div>
-          <p className="mb-10 text-[11px] uppercase tracking-[0.22em] text-muted">
-            Strength &amp; Performance
-          </p>
-          <nav aria-label="Page sections" className="flex flex-col gap-4">
-            {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className="nav-link w-fit text-sm text-muted"
-                data-active={active === item.id}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        </div>
-        <div className="space-y-3 text-xs text-muted">
-          <a
-            href="https://instagram.com/kaitranchant"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block transition hover:text-foreground"
-          >
-            @kaitranchant
-          </a>
-          <a
-            href="mailto:kaitranchant@gmail.com"
-            className="block transition hover:text-foreground"
-          >
-            Email
-          </a>
-        </div>
-      </aside>
-
       {open ? (
-        <div className="fixed inset-0 z-[35] bg-background/95 px-6 pt-24 lg:hidden">
-          <nav aria-label="Mobile sections" className="flex flex-col gap-6">
+        <div className="fixed inset-0 z-[35] bg-background/95 px-6 pt-24 sm:px-10">
+          <nav aria-label="Page sections" className="flex flex-col gap-6">
             {navItems.map((item) => (
               <a
                 key={item.id}

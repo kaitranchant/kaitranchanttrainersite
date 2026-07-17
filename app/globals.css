@@ -28,6 +28,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -61,6 +62,24 @@ body {
   transform: scale(0.97);
 }
 
+/* Floating Book CTA — unlayered so hide/show always wins over .btn-accent */
+.book-fab {
+  opacity: 0;
+  transform: translateY(1rem) scale(0.95);
+  pointer-events: none;
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out,
+    filter 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.book-fab[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
 .tap-row {
   transition: background-color 0.18s ease;
 }
@@ -87,6 +106,32 @@ body {
   to {
     opacity: 1;
   }
+}
+
+.audience-backdrop {
+  opacity: 0;
+  transition: opacity 0.22s ease-in;
+}
+
+.audience-backdrop.is-visible {
+  opacity: 1;
+  transition: opacity 0.25s ease-out;
+}
+
+.audience-card {
+  opacity: 0;
+  transform: translateY(18px) scale(0.97);
+  transition:
+    opacity 0.22s ease-in,
+    transform 0.22s ease-in;
+}
+
+.audience-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition:
+    opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .animate-fade-up {
@@ -212,5 +257,17 @@ body {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
+  }
+
+  .audience-backdrop,
+  .audience-card {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .audience-backdrop.is-visible,
+  .audience-card.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

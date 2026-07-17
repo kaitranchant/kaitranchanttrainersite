@@ -13,6 +13,29 @@ export const navItems = [
   { id: "book", label: "Book" },
 ] as const;
 
+export const audiences = [
+  {
+    name: "Athletes",
+    description:
+      "If you're training for a specific sport or event, that means programming built around your season — building strength and power in the off-season, sharpening speed and conditioning as competition nears, and managing load so you're peaking when it matters, not burnt out before you get there. Whether it's a Hyrox event, a competitive season, or a specific performance goal, the training is built around your calendar, not a generic template.",
+  },
+  {
+    name: "Physique management",
+    description:
+      "If your goal is building a hybrid physique — strength, muscle, and conditioning that actually show up in how you look and perform — the training is built around progressive overload and smart volume, not random workouts chasing a burn. Nutrition coaching pairs with it to make sure the changes stick, not just show up for a few weeks and disappear.",
+  },
+  {
+    name: "Injury recovery",
+    description:
+      "Coming back from an injury means rebuilding trust in your body as much as rebuilding strength. Training starts wherever you actually are — not where you used to be — with progressions that respect what your body's ready for, so you come back stronger without setting yourself back.",
+  },
+  {
+    name: "Healthy aging",
+    description:
+      "Staying strong as you age isn't about doing less — it's about training smarter, with the same principles that build strength at any age: progressive overload, movement quality, and recovery that keeps up with you. The goal is staying capable, confident, and injury-free for the long run, not just getting through a workout.",
+  },
+] as const;
+
 export const services = [
   {
     name: "Online Training",

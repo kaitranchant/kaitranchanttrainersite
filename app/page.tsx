@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { AudienceCards } from "@/components/AudienceCards";
 import { FAQ } from "@/components/FAQ";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { LineIcon } from "@/components/LineIcon";
@@ -7,14 +8,6 @@ import { RevealHeading } from "@/components/RevealHeading";
 import { SafePhoto } from "@/components/SafePhoto";
 import { SideNav } from "@/components/SideNav";
 import { BOOKING_HREF, services, testimonials } from "@/lib/content";
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="mb-4 text-[11px] uppercase tracking-[0.22em] text-accent">
-      {children}
-    </p>
-  );
-}
 
 const serviceIcons = {
   "Online Training": "laptop",
@@ -109,7 +102,6 @@ export default function Home() {
               />
             </div>
             <div className="pt-2 lg:pt-0">
-              <SectionLabel>About</SectionLabel>
               <RevealHeading
                 as="h2"
                 className="font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
@@ -121,24 +113,25 @@ export default function Home() {
               />
               <div className="mt-8 space-y-5 text-base leading-[1.6] text-muted sm:text-lg">
                 <p>
-                  I train people to move, perform, and feel like athletes —
-                  whether you&apos;re competing in your sport, chasing a hybrid
-                  physique, or rebuilding strength after injury, pregnancy, or
-                  menopause. Same principles: build real strength, move well, and
-                  get stronger for life.
+                  Athletic training isn&apos;t just for athletes — it&apos;s the
+                  most effective way to get stronger, no matter where you&apos;re
+                  starting. The same principles apply whether you&apos;re chasing
+                  a PR, building a hybrid physique, or staying strong and capable
+                  as you age: progressive overload, movement quality, and training
+                  that meets you where you are. It&apos;s not a different method
+                  for every group — just the right dose of the same one.
                 </p>
                 <p>
-                  I&apos;ve spent 4 years coaching clients — across 1,000+
-                  sessions — 3 of those focused on sport-specific strength &amp;
-                  conditioning, and more than a decade deep in sports and
-                  nutrition. I&apos;m a CPT, wrapping up a bachelor&apos;s in
-                  exercise science — and still the person who gets weirdly
-                  excited about a clean hip hinge.
+                  4 years coaching clients, 1,000+ sessions, 3 focused on
+                  sport-specific S&amp;C. CPT certified, finishing a
+                  bachelor&apos;s in exercise science — and still the person who
+                  gets weirdly excited about a clean hip hinge.
                 </p>
                 <p>
-                  Just as important to me: helping people come back strong after
-                  life gets in the way — postpartum, menopause, injury, time off.
-                  Same athletic standards, just meeting you where you are.
+                  Just as important to me: helping you come back strong after
+                  life gets in the way — aging, injury, time off, or just wanting
+                  to take your health seriously again. Same athletic standards,
+                  just meeting you where you are.
                 </p>
               </div>
               <ul className="mt-10 grid grid-cols-2 gap-x-4 gap-y-4 text-xs text-foreground sm:text-sm">
@@ -155,6 +148,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+              <AudienceCards />
             </div>
           </div>
         </section>
@@ -165,7 +159,6 @@ export default function Home() {
           className="scroll-mt-24 border-t border-border bg-surface px-5 py-20 sm:px-10 lg:py-28"
         >
           <div className="mx-auto max-w-6xl">
-            <SectionLabel>Services + Pricing</SectionLabel>
             <RevealHeading
               as="h2"
               className="font-display max-w-[18ch] text-3xl font-semibold leading-tight tracking-tight sm:max-w-xl sm:text-4xl lg:max-w-2xl lg:text-5xl"
@@ -255,7 +248,6 @@ export default function Home() {
         >
           <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <SectionLabel>SwiftCoach</SectionLabel>
               <RevealHeading
                 as="h2"
                 className="font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
@@ -299,7 +291,6 @@ export default function Home() {
           className="scroll-mt-24 border-t border-border bg-surface px-5 py-20 sm:px-10 lg:py-28"
         >
           <div className="mx-auto max-w-6xl">
-            <SectionLabel>Social Proof</SectionLabel>
             <RevealHeading
               as="h2"
               className="font-display max-w-2xl text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
@@ -351,7 +342,6 @@ export default function Home() {
           className="scroll-mt-24 border-t border-border bg-background px-5 py-14 sm:px-10 lg:py-20"
         >
           <div className="mx-auto max-w-6xl">
-            <SectionLabel>Locations &amp; Logistics</SectionLabel>
             <RevealHeading
               as="h2"
               className="font-display max-w-2xl text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
@@ -427,7 +417,6 @@ export default function Home() {
           className="scroll-mt-24 border-t border-border bg-surface px-5 py-20 sm:px-10 lg:py-28"
         >
           <div className="mx-auto max-w-3xl">
-            <SectionLabel>FAQ</SectionLabel>
             <RevealHeading
               as="h2"
               className="font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl"
@@ -447,7 +436,6 @@ export default function Home() {
           className="scroll-mt-24 border-t-2 border-[rgba(28,25,21,0.28)] bg-background px-5 py-20 sm:px-10 lg:py-28"
         >
           <div className="mx-auto max-w-6xl">
-            <SectionLabel>Book</SectionLabel>
             <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
               <div>
                 <RevealHeading

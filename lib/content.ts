@@ -92,7 +92,7 @@ export const testimonials = [
 
 export const faqs = [
   {
-    q: "What’s the cancellation policy?",
+    q: "What’s your cancellation policy?",
     a: "Cancellations within 24 hours of your session are subject to the full session charge. Give me a heads-up sooner and we’ll reschedule — no drama.",
   },
   {

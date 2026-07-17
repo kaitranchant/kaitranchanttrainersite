@@ -324,7 +324,19 @@ export default function Home() {
                     )}
                     <div>
                       <p className="text-sm text-foreground">{t.name}</p>
-                      <p className="text-xs text-muted">{t.role}</p>
+                      <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                        {t.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-accent-ink"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                        <span className="text-xs text-muted">
+                          training for {t.duration}
+                        </span>
+                      </div>
                     </div>
                   </div>
                   <p className="text-sm leading-[1.6] text-muted sm:text-base">

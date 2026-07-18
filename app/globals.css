@@ -186,32 +186,25 @@ body {
 
 .reveal-word {
   display: inline-block;
-  overflow: hidden;
   white-space: nowrap;
-  vertical-align: bottom;
-  padding-bottom: 0.12em;
-  margin-bottom: -0.12em;
 }
 
 .reveal-char {
   display: inline-block;
   opacity: 0;
-  transform: translateY(110%);
 }
 
 .reveal-heading[data-play="true"] .reveal-char {
-  animation: reveal-char-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: reveal-char-in 0.45s ease-out both;
   animation-delay: var(--reveal-delay, 0ms);
 }
 
 @keyframes reveal-char-in {
   from {
     opacity: 0;
-    transform: translateY(110%);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 

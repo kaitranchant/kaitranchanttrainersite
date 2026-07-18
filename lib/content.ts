@@ -41,8 +41,12 @@ export const services = [
     name: "Online Training",
     blurb:
       "Custom programming for home or gym — with check-ins, form feedback, and accountability built in.",
-    details:
-      "Includes SwiftCoach access for tracking + check-ins · program design · warm-up, custom work, cool-down",
+    includes: [
+      "Custom programming built specifically around your goals — not a template",
+      "Full SwiftCoach access to track every workout, log progress, and see your week at a glance",
+      "Bi-weekly check-in calls to review progress and adjust your plan",
+      "Direct messaging between sessions — ask questions, send form videos, get feedback in real time",
+    ],
     tiers: [
       { label: "1 session / week", price: "$150/mo" },
       { label: "2 sessions / week", price: "$200/mo", popular: true },
@@ -53,18 +57,32 @@ export const services = [
     name: "In-Home Training",
     blurb:
       "I come to you. Real-time coaching and progressive programming built around your goals, schedule, and space.",
-    details: "60 minutes · Horseheads, Elmira & Corning",
+    includes: [
+      "60-minute sessions, right at your location — no commute, no gym membership needed",
+      "Full SwiftCoach access to track every session and watch your progress add up",
+      "Warm-up, guided custom programming, and post-workout stretching, every single session",
+      "Real-time coaching and form correction, in person, every rep",
+    ],
     tiers: [
       { label: "Per session", price: "$75" },
       { label: "4 sessions / mo", price: "$260" },
+      { label: "8 sessions / mo", price: "$480" },
     ],
   },
   {
     name: "Nutrition Coaching",
     blurb:
       "Fuel your training, not a diet plan. Simple structures that support performance — sustainable habits, clear targets, results you can keep.",
-    details: "Monthly coaching · pairs well with training",
-    tiers: [{ label: "Per month", price: "$100" }],
+    includes: [
+      "Custom meal plan built around your goals, preferences, and restrictions — not a generic diet",
+      "Personalized macro targets that actually fit your training and your life",
+      "Monthly check-ins and adjustments, so your plan evolves as you do",
+      "SwiftCoach access for meal plans, shopping lists, logging, and check-ins — all in one place",
+    ],
+    tiers: [
+      { label: "Per month", price: "$125/mo" },
+      { label: "Training add-on", price: "$75/mo" },
+    ],
   },
 ] as const;
 

@@ -6,6 +6,7 @@ import { LineIcon } from "@/components/LineIcon";
 import { PhoneMockups } from "@/components/PhoneMockups";
 import { RevealHeading } from "@/components/RevealHeading";
 import { SafePhoto } from "@/components/SafePhoto";
+import { ServiceIncludes } from "@/components/ServiceIncludes";
 import { SideNav } from "@/components/SideNav";
 import { BOOKING_HREF, services, testimonials } from "@/lib/content";
 
@@ -170,10 +171,6 @@ export default function Home() {
                 },
               ]}
             />
-            <p className="mt-5 max-w-xl text-base leading-[1.6] text-muted sm:text-lg">
-              Every session runs about 60 minutes — warm-up, guided work on a
-              program built for your goals, then cool-down and stretching.
-            </p>
 
             <div className="mt-14 space-y-10">
               {services.map((service) => (
@@ -196,9 +193,7 @@ export default function Home() {
                     <p className="mt-4 max-w-md leading-[1.6] text-muted">
                       {service.blurb}
                     </p>
-                    <p className="mt-3 text-xs uppercase tracking-[0.16em] text-muted">
-                      {service.details}
-                    </p>
+                    <ServiceIncludes items={service.includes} />
                   </div>
                   <div className="space-y-3">
                     {service.tiers.map((tier) => {

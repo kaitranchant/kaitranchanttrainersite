@@ -10,6 +10,7 @@ export function LineIcon({
     | "leaf"
     | "badge"
     | "book"
+    | "grad"
     | "sessions"
     | "strength";
   className?: string;
@@ -71,8 +72,17 @@ export function LineIcon({
     case "book":
       return (
         <svg {...common}>
-          <path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H19v16.5H7.5A2.5 2.5 0 0 0 5 21V4.5Z" />
-          <path d="M5 18.5h12" />
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+          <path d="M6.5 2H20v15H6.5A2.5 2.5 0 0 0 4 19.5V4.5A2.5 2.5 0 0 1 6.5 2Z" />
+          <path d="M12 2v15" />
+        </svg>
+      );
+    case "grad":
+      return (
+        <svg {...common}>
+          <path d="M22 10 12 5 2 10l10 5 10-5Z" />
+          <path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5" />
+          <path d="M22 10v6" />
         </svg>
       );
     case "sessions":

@@ -17,7 +17,7 @@ const serviceIcons = {
 
 const credentialIcons = [
   { label: "CPT certified", icon: "badge" as const },
-  { label: "BA in Exercise Science (in progress)", icon: "book" as const },
+  { label: "BA in Exercise Science (in progress)", icon: "grad" as const },
   { label: "1,000+ sessions coached", icon: "sessions" as const },
   { label: "3 years training HS + collegiate athletes", icon: "strength" as const },
 ];
@@ -324,17 +324,17 @@ export default function Home() {
                     )}
                     <div>
                       <p className="text-sm text-foreground">{t.name}</p>
-                      <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                      <div className="mt-1.5 flex flex-nowrap items-center gap-1.5">
                         {t.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-accent-ink"
+                            className="shrink-0 rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-accent-ink whitespace-nowrap"
                           >
                             {tag}
                           </span>
                         ))}
-                        <span className="text-xs text-muted">
-                          training for {t.duration}
+                        <span className="text-xs text-muted whitespace-nowrap">
+                          {t.duration}
                         </span>
                       </div>
                     </div>

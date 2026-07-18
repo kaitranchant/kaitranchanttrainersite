@@ -71,25 +71,27 @@ export const services = [
 export const testimonials = [
   {
     name: "Nicole Sharpsteen",
-    tags: ["Post-menopause"],
-    duration: "2 years",
+    tags: ["Physique management"],
+    duration: "46, training for 2 years",
     quote:
       "I can’t recommend Kai enough! I’ve never been someone who enjoys going to the gym, but the accountability has made all the difference. Every workout is encouraging, challenging, and tailored to where I am in life. At this stage, staying strong and healthy is more important than ever, and having someone who keeps me motivated and accountable has been invaluable. If you’re looking for a trainer who genuinely cares about your success, I highly recommend Kai!",
     photo: "/images/nicole-kai-selfie.png",
   },
   {
-    name: "Jordan R.",
-    tags: ["Amateur competitor"],
-    duration: "8 months",
+    name: "Katie Johnston",
+    tags: ["Volleyball Athlete"],
+    duration: "37, training for 1 year",
     quote:
-      "Placeholder testimonial — swap this for a real client quote. Sessions feel athletic, focused, and never cookie-cutter.",
+      "I can’t recommend Kai enough! I’ve never been someone who enjoys going to the gym, but the accountability has made all the difference. Every workout is encouraging, challenging, and tailored to where I am in life. At this stage, staying strong and healthy is more important than ever, and having someone who keeps me motivated and accountable has been invaluable. If you’re looking for a trainer who genuinely cares about your success, I highly recommend Kai!",
+    photo: "/images/katie-johnston.png",
   },
   {
-    name: "Sam T.",
-    tags: ["Injury recovery"],
-    duration: "1 year",
+    name: "Lisa Noni",
+    tags: ["Physique management"],
+    duration: "46, training for 2 years",
     quote:
-      "Placeholder testimonial — swap this for a real client quote. I finally feel like an athlete again — without rushing past smart progress.",
+      "I can’t recommend Kai enough! I’ve never been someone who enjoys going to the gym, but the accountability has made all the difference. Every workout is encouraging, challenging, and tailored to where I am in life. At this stage, staying strong and healthy is more important than ever, and having someone who keeps me motivated and accountable has been invaluable. If you’re looking for a trainer who genuinely cares about your success, I highly recommend Kai!",
+    photo: "/images/nicole-kai-selfie.png",
   },
 ] as const;
 

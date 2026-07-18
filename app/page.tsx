@@ -66,9 +66,9 @@ export default function Home() {
               <p className="animate-fade-up-delay-2 mt-8 max-w-2xl text-base leading-[1.6] text-muted sm:mt-8 sm:text-lg lg:max-w-3xl lg:text-xl">
                 My name is Kai. I train people to move, perform, and
                 feel like athletes — whether you&apos;re competing in your sport,
-                chasing a hybrid physique, or rebuilding strength after injury,
-                pregnancy, or menopause. Same principles: build real strength,
-                move well, and get stronger for life.
+                chasing a hybrid physique, or staying strong and capable as you
+                age. Same principles: build real strength, move well, and get
+                stronger for life.
               </p>
               <div className="animate-fade-up-delay-2 mt-10 flex flex-wrap items-center gap-4">
                 <a

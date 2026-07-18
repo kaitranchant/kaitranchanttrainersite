@@ -22,7 +22,7 @@ export const audiences = [
   {
     name: "Physique management",
     description:
-      "If your goal is building a hybrid physique — strength, muscle, and conditioning that actually show up in how you look and perform — the training is built around progressive overload and smart volume, not random workouts chasing a burn. Nutrition coaching pairs with it to make sure the changes stick, not just show up for a few weeks and disappear.",
+      "If your goal is building a hybrid physique, that means training for how your body performs, not just how it looks — building muscle, burning fat, and improving mobility and conditioning, all built together, not chased separately. The training is built around progressive overload and smart volume, not random workouts chasing a burn. Nutrition coaching pairs with it to make sure the changes stick, not just show up for a few weeks and disappear.",
   },
   {
     name: "Injury recovery",

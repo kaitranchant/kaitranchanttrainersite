@@ -8,6 +8,7 @@ export function LineIcon({
     | "clock"
     | "laptop"
     | "leaf"
+    | "apple"
     | "badge"
     | "book"
     | "grad"
@@ -60,6 +61,14 @@ export function LineIcon({
         <svg {...common}>
           <path d="M5 19c8 0 14-6 14-14-8 0-14 6-14 14Z" />
           <path d="M5 19c3-5 7-9 14-14" />
+        </svg>
+      );
+    case "apple":
+      return (
+        <svg {...common}>
+          <path d="M12 21c1.4 0 2.6-.9 3.8-.9 2.8 0 5.2-6.5 5.2-10.2A4.2 4.2 0 0 0 17 5.8c-1.9 0-3.4 1.1-4.2 1.7-.8-.6-2.3-1.7-4.2-1.7a4.2 4.2 0 0 0-4 4.1C4.6 13.6 7 20.1 9.8 20.1c1.2 0 2.4.9 3.8.9Z" />
+          <path d="M10 3.5c.8.4 1.6 1.5 2 3.5" />
+          <path d="M14.5 4.2c.2 1.2-.3 2.3-1.2 3" />
         </svg>
       );
     case "badge":

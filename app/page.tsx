@@ -1,13 +1,12 @@
 import Image from "next/image";
 import { AudienceCards } from "@/components/AudienceCards";
 import { FAQ } from "@/components/FAQ";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { LineIcon } from "@/components/LineIcon";
 import { PhoneMockups } from "@/components/PhoneMockups";
 import { RevealHeading } from "@/components/RevealHeading";
-import { SafePhoto } from "@/components/SafePhoto";
 import { ServiceIncludes } from "@/components/ServiceIncludes";
 import { SideNav } from "@/components/SideNav";
+import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { BOOKING_HREF, services, testimonials } from "@/lib/content";
 
 const serviceIcons = {
@@ -286,60 +285,18 @@ export default function Home() {
           className="scroll-mt-24 border-t border-border bg-surface px-5 py-20 sm:px-10 lg:py-28"
         >
           <div className="mx-auto max-w-6xl">
-            <RevealHeading
-              as="h2"
-              className="font-display max-w-2xl text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
-              segments={[
-                { text: "Results that show up in sport and life." },
-              ]}
+            <TestimonialsCarousel
+              items={publishedTestimonials}
+              header={
+                <RevealHeading
+                  as="h2"
+                  className="font-display max-w-2xl text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+                  segments={[
+                    { text: "Results that show up in sport and life." },
+                  ]}
+                />
+              }
             />
-
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {publishedTestimonials.map((t) => (
-                <blockquote
-                  key={t.name}
-                  className="border-t border-border pt-6"
-                >
-                  <div className="mb-5 flex items-center gap-3">
-                    {"photo" in t && t.photo ? (
-                      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-media border border-border sm:h-20 sm:w-20">
-                        <SafePhoto
-                          src={t.photo}
-                          alt={t.name}
-                          className="object-cover object-center"
-                          sizes="80px"
-                        />
-                      </div>
-                    ) : (
-                      <ImagePlaceholder
-                        label="Client photo"
-                        className="h-16 w-16 shrink-0 rounded-media sm:h-20 sm:w-20"
-                        ratio="aspect-square"
-                      />
-                    )}
-                    <div>
-                      <p className="text-sm text-foreground">{t.name}</p>
-                      <div className="mt-1.5 flex flex-nowrap items-center gap-1.5">
-                        {t.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="shrink-0 rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-accent-ink whitespace-nowrap"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                        <span className="text-xs text-muted whitespace-nowrap">
-                          {t.duration}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-sm leading-[1.6] text-muted sm:text-base">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                </blockquote>
-              ))}
-            </div>
           </div>
         </section>
 

@@ -189,11 +189,18 @@ body {
   display: inline-block;
   opacity: 0;
   transform: translateY(0.4em);
+  backface-visibility: hidden;
 }
 
 .reveal-heading[data-play="true"] .reveal-char {
   animation: reveal-char-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-heading[data-done="true"] .reveal-char {
+  opacity: 1;
+  transform: none;
+  animation: none;
 }
 
 @keyframes reveal-char-in {

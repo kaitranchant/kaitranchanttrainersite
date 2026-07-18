@@ -1,17 +1,49 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { audiences } from "@/lib/content";
+
+const SLIDE_MS = 350;
 
 export function AudienceCards() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [contentIndex, setContentIndex] = useState(0);
+  const reopenTimer = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (reopenTimer.current !== null) {
+        window.clearTimeout(reopenTimer.current);
+      }
+    };
+  }, []);
+
+  function clearReopenTimer() {
+    if (reopenTimer.current !== null) {
+      window.clearTimeout(reopenTimer.current);
+      reopenTimer.current = null;
+    }
+  }
 
   function toggle(index: number) {
+    clearReopenTimer();
+
     if (openIndex === index) {
       setOpenIndex(null);
       return;
     }
+
+    // Already open on another tab — slide shut, then open the new one.
+    if (openIndex !== null) {
+      setOpenIndex(null);
+      reopenTimer.current = window.setTimeout(() => {
+        setContentIndex(index);
+        setOpenIndex(index);
+        reopenTimer.current = null;
+      }, SLIDE_MS);
+      return;
+    }
+
     setContentIndex(index);
     setOpenIndex(index);
   }

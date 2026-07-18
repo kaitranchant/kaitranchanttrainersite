@@ -19,7 +19,7 @@ const credentialIcons = [
   { label: "CPT certified", icon: "badge" as const },
   { label: "BA in Exercise Science (in progress)", icon: "book" as const },
   { label: "1,000+ sessions coached", icon: "sessions" as const },
-  { label: "3 years athlete S&C", icon: "strength" as const },
+  { label: "3 years training HS + collegiate athletes", icon: "strength" as const },
 ];
 
 const publishedTestimonials = testimonials.filter(
@@ -47,7 +47,7 @@ export default function Home() {
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
-          <div className="flex flex-col justify-center bg-background px-5 py-12 sm:px-10 sm:py-16 lg:px-20 lg:pt-28 lg:pb-20 xl:px-24">
+          <div className="flex flex-col justify-start bg-background px-5 py-12 sm:px-10 sm:py-16 lg:justify-center lg:px-20 lg:pt-28 lg:pb-20 xl:px-24">
             <div className="w-full max-w-3xl lg:max-w-none">
               <RevealHeading
                 as="h1"

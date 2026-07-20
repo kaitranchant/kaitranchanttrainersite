@@ -100,7 +100,7 @@ export const testimonials = [
     tags: ["Volleyball Athlete"],
     duration: "training for 1 year",
     quote:
-      "I can’t recommend Kai enough! I’ve never been someone who enjoys going to the gym, but the accountability has made all the difference. Every workout is encouraging, challenging, and tailored to where I am in life. At this stage, staying strong and healthy is more important than ever, and having someone who keeps me motivated and accountable has been invaluable. If you’re looking for a trainer who genuinely cares about your success, I highly recommend Kai!",
+      "Kai’s knowledge and expertise is evident in every session and his guidance has led to consistent, measurable results. He has the perfect blend of encouragement and challenge that keeps me progressing each week. Beyond the workouts, he holds me accountable for hydration and nutrition creating a comprehensive training experience!",
     photo: "/images/katie-johnston.png",
   },
   {

@@ -1,6 +1,6 @@
 /** Swap this for Calendly / Acuity when ready */
 export const BOOKING_HREF =
-  "mailto:kaitranchant@gmail.com?subject=Book%20a%20Session%20—%20Free%20Consult";
+  "https://calendly.com/kaitranchant/30min";
 
 export const navItems = [
   { id: "top", label: "Top" },

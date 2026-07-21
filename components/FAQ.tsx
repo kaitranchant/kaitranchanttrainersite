@@ -14,7 +14,7 @@ export function FAQ() {
           <div key={item.q}>
             <button
               type="button"
-              className="tap-row group flex min-h-[3.25rem] w-full items-center justify-between gap-4 py-4 text-left transition hover:bg-[rgba(28,25,21,0.03)] sm:gap-6 sm:py-5"
+              className="tap-row group flex min-h-[3.25rem] w-full items-center justify-between gap-4 py-4 text-left transition hover:bg-[rgba(243,241,237,0.04)] sm:gap-6 sm:py-5"
               aria-expanded={isOpen}
               onClick={() => setOpenIndex(isOpen ? -1 : index)}
             >

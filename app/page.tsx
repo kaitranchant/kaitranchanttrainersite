@@ -7,7 +7,12 @@ import { RevealHeading } from "@/components/RevealHeading";
 import { ServiceIncludes } from "@/components/ServiceIncludes";
 import { SideNav } from "@/components/SideNav";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
-import { BOOKING_HREF, services, testimonials } from "@/lib/content";
+import {
+  BOOKING_HREF,
+  INSTAGRAM_HREF,
+  services,
+  testimonials,
+} from "@/lib/content";
 
 const serviceIcons = {
   "Online Training": "laptop",
@@ -15,11 +20,10 @@ const serviceIcons = {
   "Nutrition Coaching": "leaf",
 } as const;
 
-const credentialIcons = [
-  { label: "CPT certified", icon: "badge" as const },
-  { label: "BA in Exercise Science (in progress)", icon: "grad" as const },
-  { label: "1,000+ sessions coached", icon: "sessions" as const },
-  { label: "3 years training HS + collegiate athletes", icon: "strength" as const },
+const heroStats = [
+  { value: "1,000+", label: "sessions coached" },
+  { value: "3 yrs", label: "HS & collegiate strength and conditioning" },
+  { value: "CPT", label: "certified, ExSci BA" },
 ];
 
 const publishedTestimonials = testimonials.filter(
@@ -49,38 +53,63 @@ export default function Home() {
           </div>
           <div className="flex flex-col justify-center bg-background px-5 py-12 sm:px-10 sm:py-16 lg:px-20 lg:pt-28 lg:pb-20 xl:px-24">
             <div className="w-full max-w-3xl lg:max-w-none">
+              <div className="animate-fade-up flex flex-wrap gap-2.5">
+                <span className="rounded-full border border-accent/60 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+                  Hyrox + Deka prep
+                </span>
+                <span className="rounded-full border border-border px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-foreground">
+                  College sport S&amp;C
+                </span>
+              </div>
               <RevealHeading
                 as="h1"
-                className="w-full font-display text-[2.35rem] font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl sm:leading-[1.05] lg:text-6xl xl:text-7xl"
+                className="mt-6 w-full font-display text-[2.35rem] font-extrabold uppercase leading-[1.04] tracking-tight text-foreground sm:text-5xl sm:leading-[1.02] lg:text-6xl xl:text-7xl"
                 staggerMs={16}
                 eager
                 segments={[
-                  { text: "Train Like an Athlete —" },
+                  { text: "Peak" },
                   {
-                    text: "Whatever That Means for You",
-                    className:
-                      "mt-2 block font-serif text-[0.68em] font-normal italic leading-snug text-[rgba(28,25,21,0.62)] sm:mt-2 lg:whitespace-nowrap",
+                    text: "when it counts.",
+                    className: "block text-accent",
                   },
                 ]}
               />
-              <p className="animate-fade-up-delay-2 mt-8 max-w-2xl text-base leading-[1.6] text-muted sm:mt-8 sm:text-lg lg:max-w-3xl lg:text-xl">
-                My name is Kai. I train people to move, perform, and
-                feel like athletes — whether you&apos;re competing in your sport,
-                chasing a hybrid physique, or staying strong and capable as you
-                age. Same principles: build real strength, move well, and get
-                stronger for life.
+              <p className="animate-fade-up-delay-2 mt-7 max-w-2xl text-base leading-[1.6] text-muted sm:text-lg lg:max-w-3xl lg:text-xl">
+                Strength, conditioning, and programming built backwards from
+                your race, your season, or your combine. In person across the
+                Twin Tiers or coached online.
               </p>
-              <div className="animate-fade-up-delay-2 mt-10 flex flex-wrap items-center gap-4">
+              <div className="animate-fade-up-delay-2 mt-9 flex flex-wrap items-center gap-4">
                 <a
                   href={BOOKING_HREF}
                   data-book-cta
                   className="btn-accent inline-flex rounded-full bg-accent px-7 py-3.5 text-sm font-semibold tracking-wide text-accent-ink sm:text-base"
                 >
-                  Book a Session
+                  Start your prep block
                 </a>
-                <p className="text-xs uppercase tracking-[0.18em] text-[rgba(28,25,21,0.65)]">
-                  First consult is free
-                </p>
+                <a
+                  href={INSTAGRAM_HREF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3.5 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent sm:text-base"
+                >
+                  Watch training
+                </a>
+              </div>
+              <p className="animate-fade-up-delay-2 mt-4 text-xs uppercase tracking-[0.18em] text-muted">
+                First consult is free — talk goals, get a plan
+              </p>
+              <div className="animate-fade-up-delay-2 mt-10 grid grid-cols-3 divide-x divide-border border border-border">
+                {heroStats.map((stat) => (
+                  <div key={stat.label} className="px-4 py-4 sm:px-5">
+                    <p className="font-display text-xl font-extrabold text-accent sm:text-2xl">
+                      {stat.value}
+                    </p>
+                    <p className="mt-1 text-[11px] leading-snug text-muted sm:text-xs">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -104,50 +133,42 @@ export default function Home() {
             <div className="pt-2 lg:pt-0">
               <RevealHeading
                 as="h2"
-                className="font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+                className="font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
                 segments={[
                   {
-                    text: "Strength & performance coaching — for athletes, and anyone who wants to train like one.",
+                    text: "Strength & conditioning for people with a date on the calendar.",
                   },
                 ]}
               />
               <div className="mt-8 space-y-5 text-base leading-[1.6] text-muted sm:text-lg">
                 <p>
-                  Athletic training isn&apos;t just for athletes — it&apos;s the
-                  most effective way to get stronger, no matter where you&apos;re
-                  starting. The same principles apply whether you&apos;re chasing
-                  a PR, building a hybrid physique, or staying strong and capable
-                  as you age: progressive overload, movement quality, and training
-                  that meets you where you are. It&apos;s not a different method
-                  for every group — just the right dose of the same one.
+                  My name is Kai. I coach athletes who compete — hybrid
+                  competition athletes (Hyrox, Deka, and races like them)
+                  building toward a start line, and high school athletes
+                  putting in off-season work to play in college. Programming
+                  starts at your competition date and works back from there:
+                  strength and power when there&apos;s room to push, speed and
+                  conditioning as the date closes in, and load management so you
+                  show up at your best.
                 </p>
                 <p>
-                  4 years coaching clients, 1,000+ sessions, 3 focused on
-                  sport-specific S&amp;C. CPT certified, finishing a
+                  Four years coaching, 1,000+ sessions — the last three focused
+                  on sport-specific S&amp;C. CPT certified, finishing a
                   bachelor&apos;s in exercise science — and still the person who
                   gets weirdly excited about a clean hip hinge.
                 </p>
                 <p>
-                  Just as important to me: helping you come back strong after
-                  life gets in the way — aging, injury, time off, or just wanting
-                  to take your health seriously again. Same athletic standards,
-                  just meeting you where you are.
+                  Not training for a competition? I still coach plenty of people
+                  who just want to train with athletic standards —{" "}
+                  <a
+                    href="#not-competing"
+                    className="text-foreground underline underline-offset-4 transition hover:text-accent"
+                  >
+                    more on that here
+                  </a>
+                  .
                 </p>
               </div>
-              <ul className="mt-10 grid grid-cols-2 gap-x-4 gap-y-4 text-xs text-foreground sm:text-sm">
-                {credentialIcons.map((item) => (
-                  <li
-                    key={item.label}
-                    className="flex items-start gap-2.5 border-t border-border pt-3"
-                  >
-                    <LineIcon
-                      name={item.icon}
-                      className="mt-0.5 h-4 w-4 shrink-0 text-accent"
-                    />
-                    <span>{item.label}</span>
-                  </li>
-                ))}
-              </ul>
               <AudienceCards />
             </div>
           </div>
@@ -161,11 +182,11 @@ export default function Home() {
           <div className="mx-auto max-w-6xl">
             <RevealHeading
               as="h2"
-              className="font-display max-w-[18ch] text-3xl font-semibold leading-tight tracking-tight sm:max-w-xl sm:text-4xl lg:max-w-2xl lg:text-5xl"
+              className="font-display max-w-[18ch] text-3xl font-bold leading-tight tracking-tight sm:max-w-xl sm:text-4xl lg:max-w-2xl lg:text-5xl"
               segments={[
-                { text: "Transparent pricing," },
+                { text: "Programs & pricing." },
                 {
-                  text: "built around how you train.",
+                  text: "Built around your season.",
                   className: "block",
                 },
               ]}
@@ -186,10 +207,13 @@ export default function Home() {
                     </div>
                     <RevealHeading
                       as="h3"
-                      className="font-display text-2xl font-semibold tracking-tight sm:text-3xl"
+                      className="font-display text-2xl font-bold tracking-tight sm:text-3xl"
                       segments={[{ text: service.name }]}
                     />
-                    <p className="mt-4 max-w-md leading-[1.6] text-muted">
+                    <p className="mt-3 text-sm font-semibold text-accent">
+                      {service.for}
+                    </p>
+                    <p className="mt-3 max-w-md leading-[1.6] text-muted">
                       {service.blurb}
                     </p>
                     <ServiceIncludes items={service.includes} />
@@ -229,7 +253,7 @@ export default function Home() {
                 data-book-cta
                 className="btn-accent inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink"
               >
-                Book a Session
+                Book free consult
               </a>
             </div>
           </div>
@@ -244,17 +268,17 @@ export default function Home() {
             <div>
               <RevealHeading
                 as="h2"
-                className="font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+                className="font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
                 segments={[
                   {
-                    text: "Workouts, progress, nutrition, recovery — one place.",
+                    text: "Your whole program lives in SwiftCoach—software I built exactly for this.",
                   },
                 ]}
               />
               <p className="mt-6 text-base leading-[1.6] text-muted sm:text-lg">
-                Clients get access to SwiftCoach — the training &amp; coaching
-                app I built. Track workouts, progress, nutrition, recovery, and
-                health in one dashboard so you always know what to do next.
+                Workouts, progress, nutrition, recovery, and health tracking in
+                one dashboard — so you always know what to do next, and I can
+                see how you&apos;re responding between sessions.
               </p>
               <ul className="mt-8 space-y-3 text-sm text-foreground sm:text-base">
                 <li className="flex gap-3">
@@ -290,13 +314,60 @@ export default function Home() {
               header={
                 <RevealHeading
                   as="h2"
-                  className="font-display max-w-2xl text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+                  className="font-display max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
                   segments={[
                     { text: "Results that show up in sport and life." },
                   ]}
                 />
               }
             />
+            <div className="mt-10">
+              <a
+                href={INSTAGRAM_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent"
+              >
+                Watch training on Instagram →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* NOT COMPETING */}
+        <section
+          id="not-competing"
+          className="scroll-mt-24 border-t border-border bg-background px-5 py-14 sm:px-10 lg:py-20"
+        >
+          <div className="mx-auto max-w-6xl">
+            <RevealHeading
+              as="h2"
+              className="font-display max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+              segments={[
+                { text: "Not competing?" },
+                {
+                  text: "Same standards, your pace.",
+                  className: "block text-muted",
+                },
+              ]}
+            />
+            <p className="mt-6 max-w-2xl text-base leading-[1.6] text-muted sm:text-lg">
+              Plenty of my clients aren&apos;t chasing a start line — they&apos;re
+              changing their body composition, coming back from an injury, or
+              staying strong and capable as they age. The training runs on the
+              same principles: progressive overload, movement quality, and a
+              program that meets you where you are. No race required — just a
+              reason.
+            </p>
+            <div className="mt-8">
+              <a
+                href={BOOKING_HREF}
+                data-book-cta
+                className="btn-accent inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink"
+              >
+                Book free consult
+              </a>
+            </div>
           </div>
         </section>
 
@@ -308,10 +379,10 @@ export default function Home() {
           <div className="mx-auto max-w-6xl">
             <RevealHeading
               as="h2"
-              className="font-display max-w-2xl text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+              className="font-display max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
               segments={[
                 {
-                  text: "In your home around the Twin Tiers — or online from anywhere.",
+                  text: "In your home around the Twin Tiers—or online from anywhere.",
                 },
               ]}
             />
@@ -321,7 +392,7 @@ export default function Home() {
                 <p className="text-xs uppercase tracking-[0.18em] text-muted">
                   In-home
                 </p>
-                <p className="mt-3 font-display text-2xl font-semibold tracking-tight">
+                <p className="mt-3 font-display text-2xl font-bold tracking-tight">
                   Horseheads · Elmira · Corning
                 </p>
                 <p className="mt-3 text-sm leading-[1.6] text-muted">
@@ -335,7 +406,7 @@ export default function Home() {
                 <p className="text-xs uppercase tracking-[0.18em] text-muted">
                   Online
                 </p>
-                <p className="mt-3 font-display text-2xl font-semibold tracking-tight">
+                <p className="mt-3 font-display text-2xl font-bold tracking-tight">
                   Coached from anywhere
                 </p>
                 <p className="mt-3 text-sm leading-[1.6] text-muted">
@@ -348,12 +419,11 @@ export default function Home() {
                 <p className="text-xs uppercase tracking-[0.18em] text-muted">
                   Session length
                 </p>
-                <p className="mt-3 font-display text-2xl font-semibold tracking-tight">
+                <p className="mt-3 font-display text-2xl font-bold tracking-tight">
                   60 minutes
                 </p>
                 <p className="mt-3 text-sm leading-[1.6] text-muted">
-                  Warm-up → custom guided work → cool-down / stretch. The full
-                  personal training experience.
+                  Warm-up, the day&apos;s block, cool-down. You just show up.
                 </p>
               </div>
             </div>
@@ -363,7 +433,7 @@ export default function Home() {
                 data-book-cta
                 className="btn-accent inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink"
               >
-                Book a Session
+                Book free consult
               </a>
               <a
                 href="#services"
@@ -383,7 +453,7 @@ export default function Home() {
           <div className="mx-auto max-w-3xl">
             <RevealHeading
               as="h2"
-              className="font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl"
+              className="font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl"
               segments={[
                 { text: "The stuff people usually ask before they book." },
               ]}
@@ -397,20 +467,23 @@ export default function Home() {
         {/* BOOK / CONTACT */}
         <section
           id="book"
-          className="scroll-mt-24 border-t-2 border-[rgba(28,25,21,0.28)] bg-background px-5 py-20 sm:px-10 lg:py-28"
+          className="scroll-mt-24 border-t-2 border-[rgba(243,241,237,0.28)] bg-background px-5 py-20 sm:px-10 lg:py-28"
         >
           <div className="mx-auto max-w-6xl">
             <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
               <div>
                 <RevealHeading
                   as="h2"
-                  className="font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
-                  segments={[{ text: "Ready to train like an athlete?" }]}
+                  className="font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+                  segments={[
+                    { text: "Got a date on the calendar?" },
+                    { text: "Let's build to it.", className: "block text-accent" },
+                  ]}
                 />
                 <p className="mt-5 max-w-lg text-base leading-[1.6] text-muted sm:text-lg">
-                  Your first consult is free. We&apos;ll talk goals, logistics,
-                  and the right plan — then get you into SwiftCoach and
-                  training.
+                  Your first consult is free. We&apos;ll talk your race, your
+                  season, and the right prep block — then get you into
+                  SwiftCoach and training.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-4">
                   <a
@@ -418,7 +491,7 @@ export default function Home() {
                     data-book-cta
                     className="btn-accent inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink"
                   >
-                    Book a Session
+                    Book free consult
                   </a>
                   <a
                     href="https://instagram.com/kaitranchant"

@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f0ebe4;
-  --foreground: #1c1915;
-  --muted: #6e675e;
-  --surface: #e4dbd0;
-  --surface-2: #ddd6cb;
-  --border: rgba(28, 25, 21, 0.2);
-  --accent: #7d96a6;
-  --accent-ink: #0b1014;
+  --background: #111110;
+  --foreground: #f3f1ed;
+  --muted: #a39d93;
+  --surface: #191816;
+  --surface-2: #201e1b;
+  --border: rgba(243, 241, 237, 0.16);
+  --accent: #ff5c1f;
+  --accent-ink: #0d0c0b;
   --radius-media: 1rem;
 }
 
@@ -22,8 +22,7 @@
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
   --font-sans: var(--font-manrope);
-  --font-display: var(--font-instrument);
-  --font-serif: var(--font-instrument);
+  --font-display: var(--font-archivo);
 }
 
 html {
@@ -85,7 +84,7 @@ body {
 }
 
 .tap-row:active {
-  background-color: rgba(28, 25, 21, 0.05);
+  background-color: rgba(243, 241, 237, 0.06);
 }
 
 @keyframes fade-up {
@@ -136,8 +135,8 @@ body {
 
 .placeholder-media {
   background:
-    linear-gradient(135deg, rgba(125, 150, 166, 0.12), transparent 45%),
-    linear-gradient(180deg, #e8e1d7 0%, #d9d1c5 100%);
+    linear-gradient(135deg, rgba(255, 92, 31, 0.12), transparent 45%),
+    linear-gradient(180deg, #201e1b 0%, #191816 100%);
   border: 1px solid var(--border);
 }
 

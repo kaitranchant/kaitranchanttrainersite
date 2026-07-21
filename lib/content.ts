@@ -2,45 +2,32 @@
 export const BOOKING_HREF =
   "https://calendly.com/kaitranchant/30min";
 
-export const navItems = [
-  { id: "top", label: "Top" },
-  { id: "about", label: "About" },
-  { id: "services", label: "Services" },
-  { id: "software", label: "SwiftCoach" },
-  { id: "results", label: "Results" },
-  { id: "locations", label: "Locations" },
-  { id: "faq", label: "FAQ" },
-  { id: "book", label: "Book" },
-] as const;
+export const INSTAGRAM_HREF = "https://instagram.com/kaitranchant";
 
 export const audiences = [
   {
-    name: "Athletes",
+    name: "Hybrid comp prep",
     description:
-      "If you're training for a specific sport or event, that means programming built around your season — building strength and power in the off-season, sharpening speed and conditioning as competition nears, and managing load so you're peaking when it matters, not burnt out before you get there. Whether it's a Hyrox event, a competitive season, or a specific performance goal, the training is built around your calendar, not a generic template.",
+      "Whether it's Hyrox, Deka, or another hybrid race, prep is more than being fit — it's being ready for the specific demands of race day. That means building your engine with running volume and compromised-running work, getting strong on the stations (sled push and pull, wall balls, lunges, farmer's carry), and pacing strategy so you don't blow up halfway through. Your prep block is built backwards from your race date, so you peak on the start line — not three weeks before it.",
   },
   {
-    name: "Physique management",
+    name: "College-bound athletes",
     description:
-      "If your goal is building a hybrid physique, that means training for how your body performs, not just how it looks — building muscle, burning fat, and improving mobility and conditioning, all built together, not chased separately. The training is built around progressive overload and smart volume, not random workouts chasing a burn. Nutrition coaching pairs with it to make sure the changes stick, not just show up for a few weeks and disappear.",
+      "If you're a high school athlete trying to play at the next level, the off-season is where you separate yourself. That means building strength and power when there's room to train hard, sharpening speed and conditioning as the season nears, and managing load so you show up to camp ready — not burnt out. Programming is built around your sport, your season, and the testing numbers coaches actually look at.",
   },
   {
-    name: "Injury recovery",
+    name: "Body composition",
     description:
-      "Coming back from an injury means rebuilding trust in your body as much as rebuilding strength. Training starts wherever you actually are — not where you used to be — with progressions that respect what your body's ready for, so you come back stronger without setting yourself back.",
-  },
-  {
-    name: "Healthy aging",
-    description:
-      "Staying strong as you age isn't about doing less — it's about training smarter, with the same principles that build strength at any age: progressive overload, movement quality, and recovery that keeps up with you. The goal is staying capable, confident, and injury-free for the long run, not just getting through a workout.",
+      "If your goal is changing your body composition, that means training for how your body performs, not just how it looks — building muscle, burning fat, and improving mobility and conditioning, all built together, not chased separately. The training is built around progressive overload and smart volume, not random workouts chasing a burn. Nutrition coaching pairs with it to make sure the changes stick, not just show up for a few weeks and disappear.",
   },
 ] as const;
 
 export const services = [
   {
     name: "Online Training",
+    for: "For: racers with a date on the calendar, and athletes training on their own schedule",
     blurb:
-      "Custom programming for home or gym — with check-ins, form feedback, and accountability built in.",
+      "Programming built around your competition calendar — race prep blocks, off-season builds, and in-season maintenance — with check-ins, form feedback, and accountability built in.",
     includes: [
       "Custom programming built specifically around your goals — not a template",
       "Full SwiftCoach access to track every workout, log progress, and see your week at a glance",
@@ -55,8 +42,9 @@ export const services = [
   },
   {
     name: "In-Home Training",
+    for: "For: athletes who want eyes on every session",
     blurb:
-      "I come to you. Real-time coaching and progressive programming built around your goals, schedule, and space.",
+      "I come to you. Race prep, off-season builds, or a full performance block — coached in person, rep by rep, in whatever space you've got.",
     includes: [
       "60-minute sessions, right at your location — no commute, no gym membership needed",
       "Full SwiftCoach access to track every session and watch your progress add up",
@@ -71,8 +59,9 @@ export const services = [
   },
   {
     name: "Nutrition Coaching",
+    for: "For: anyone whose training outpaces their eating",
     blurb:
-      "Fuel your training, not a diet plan. Simple structures that support performance — sustainable habits, clear targets, results you can keep.",
+      "Fuel the training, not a diet plan. Macros and meal structure that support race prep, off-season builds, and recovery — sustainable habits, clear targets, results you can keep.",
     includes: [
       "Custom meal plan built around your goals, preferences, and restrictions — not a generic diet",
       "Personalized macro targets that actually fit your training and your life",
@@ -89,7 +78,7 @@ export const services = [
 export const testimonials = [
   {
     name: "Nicole Sharpsteen",
-    tags: ["Physique management"],
+    tags: ["Body composition"],
     duration: "training for 3 years",
     quote:
       "I can’t recommend Kai enough! I’ve never been someone who enjoys going to the gym, but the accountability has made all the difference. Every workout is encouraging, challenging, and tailored to where I am in life. At this stage, staying strong and healthy is more important than ever, and having someone who keeps me motivated and accountable has been invaluable. If you’re looking for a trainer who genuinely cares about your success, I highly recommend Kai!",
@@ -105,7 +94,7 @@ export const testimonials = [
   },
   {
     name: "Lisa Noni",
-    tags: ["Physique management"],
+    tags: ["Body composition"],
     duration: "training for 2 years",
     quote:
       "I can’t recommend Kai enough! I’ve never been someone who enjoys going to the gym, but the accountability has made all the difference. Every workout is encouraging, challenging, and tailored to where I am in life. At this stage, staying strong and healthy is more important than ever, and having someone who keeps me motivated and accountable has been invaluable. If you’re looking for a trainer who genuinely cares about your success, I highly recommend Kai!",
@@ -113,7 +102,7 @@ export const testimonials = [
   },
   {
     name: "Sherry Boor",
-    tags: ["Physique management"],
+    tags: ["Body composition"],
     duration: "training for 2 years",
     quote:
       "I can’t recommend Kai enough! I’ve never been someone who enjoys going to the gym, but the accountability has made all the difference. Every workout is encouraging, challenging, and tailored to where I am in life. At this stage, staying strong and healthy is more important than ever, and having someone who keeps me motivated and accountable has been invaluable. If you’re looking for a trainer who genuinely cares about your success, I highly recommend Kai!",
@@ -121,6 +110,22 @@ export const testimonials = [
 ] as const;
 
 export const faqs = [
+  {
+    q: "Can you get me ready for a specific competition date?",
+    a: "Yes — that's the core of what I do. Tell me your race or event date and we build backwards from it: a prep block with the right mix of strength, conditioning, and event-specific work, dosed so you peak on the day. Hyrox, Deka, a competitive season opener, or a testing combine — if there's a date on the calendar, we train to it.",
+  },
+  {
+    q: "Do you work with high school athletes trying to play in college?",
+    a: "Absolutely — 3 of my 4 years coaching have been focused on HS and collegiate S&C. For athletes: off-season strength and power, speed work, and the testing numbers recruiters look at. For parents: structured, supervised programming with load management built in, so your athlete develops without getting hurt. Happy to talk with both of you at the free consult.",
+  },
+  {
+    q: "How far out from my race should we start?",
+    a: "Ideally 8–16 weeks — enough time for a real strength block before we sharpen conditioning and event-specific work. Closer than that? We can still make meaningful progress; the plan just gets more focused. Either way, tell me your date at the consult and I'll tell you exactly what's realistic.",
+  },
+  {
+    q: "I already have a program from my sport coach — do we work around it?",
+    a: "Yes — we coordinate, not conflict. Team lifting and practice come first; I program around your team calendar so the volume adds up to development, not burnout. That usually means filling the gaps your team program can't: individual weaknesses, speed work, or extra recovery management.",
+  },
   {
     q: "What’s your cancellation policy?",
     a: "Cancellations within 24 hours of your session are subject to the full session charge. Give me a heads-up sooner and we’ll reschedule — no drama.",
@@ -138,8 +143,8 @@ export const faqs = [
     a: "Absolutely. “Train like an athlete” doesn’t mean you already are one — it means we train with purpose, progression, and good form from day one. Beginners are welcome; I’ll meet you where you are and build from there.",
   },
   {
-    q: "I’m coming back from injury, postpartum, or time off — is that okay?",
-    a: "Yes. That’s a big part of who I coach. We’ll start smart, respect where your body is today, and rebuild strength with the same athletic standards — just dialed to your timeline. Always share any medical guidance you’ve been given so we can program around it.",
+    q: "I’m coming back from injury or time off — is that okay?",
+    a: "Yes. We’ll start where your body is today and rebuild with the same athletic standards, just dialed to your timeline. Share any medical guidance you’ve been given and I’ll program around it.",
   },
   {
     q: "Where do sessions happen?",

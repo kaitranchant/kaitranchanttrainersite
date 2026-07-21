@@ -22,7 +22,7 @@ const serviceIcons = {
 
 const heroStats = [
   { value: "1,000+", label: "sessions coached" },
-  { value: "3 yrs", label: "HS & collegiate strength and conditioning" },
+  { value: "3 yrs", label: "HS & collegiate S&C" },
   { value: "CPT, BS ExSci", label: "NASM Certified" },
 ];
 
@@ -53,11 +53,11 @@ export default function Home() {
           </div>
           <div className="flex flex-col justify-center bg-background px-5 py-12 sm:px-10 sm:py-16 lg:px-20 lg:pt-28 lg:pb-20 xl:px-24">
             <div className="w-full max-w-3xl lg:max-w-none">
-              <div className="animate-fade-up flex flex-wrap gap-2.5">
-                <span className="rounded-full border border-accent/60 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+              <div className="animate-fade-up flex flex-wrap gap-2 sm:gap-2.5">
+                <span className="rounded-full border border-accent/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-accent sm:px-3.5 sm:py-1.5 sm:text-xs sm:tracking-[0.14em]">
                   Hybrid comp prep
                 </span>
-                <span className="rounded-full border border-border px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-foreground">
+                <span className="rounded-full border border-border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-foreground sm:px-3.5 sm:py-1.5 sm:text-xs sm:tracking-[0.14em]">
                   College sport S&amp;C
                 </span>
               </div>
@@ -101,8 +101,8 @@ export default function Home() {
               </p>
               <div className="animate-fade-up-delay-2 mt-10 grid grid-cols-3 divide-x divide-border border border-border">
                 {heroStats.map((stat) => (
-                  <div key={stat.label} className="px-4 py-4 sm:px-5">
-                    <p className="font-display text-xl font-extrabold text-accent sm:text-2xl">
+                  <div key={stat.label} className="px-2.5 py-4 sm:px-5">
+                    <p className="whitespace-nowrap font-display text-[13px] font-extrabold tracking-tight text-accent sm:text-2xl">
                       {stat.value}
                     </p>
                     <p className="mt-1 text-[11px] leading-snug text-muted sm:text-xs">

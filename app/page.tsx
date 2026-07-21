@@ -23,7 +23,7 @@ const serviceIcons = {
 const heroStats = [
   { value: "1,000+", label: "sessions coached" },
   { value: "3 yrs", label: "HS & collegiate strength and conditioning" },
-  { value: "CPT", label: "certified, ExSci BA" },
+  { value: "CPT, BS ExSci", label: "NASM Certified" },
 ];
 
 const publishedTestimonials = testimonials.filter(

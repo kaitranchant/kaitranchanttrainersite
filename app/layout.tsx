@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title:
     "Kai Tranchant | Hybrid Comp Prep & College Sport S&C — Horseheads, Elmira & Corning, NY",
   description:
-    "Strength & conditioning for hybrid competition athletes (Hyrox, Deka, and more) and college-bound athletes. Off-season strength, race-day conditioning, programming built around your competition calendar. In person across the Twin Tiers or coached online.",
+    "Strength & conditioning for hybrid competition athletes (HYROX, DEKA, and more) and college-bound athletes. Off-season strength, race-day conditioning, programming built around your competition calendar. In person across the Twin Tiers or coached online.",
   openGraph: {
     title:
       "Kai Tranchant | Hybrid Comp Prep & College Sport S&C",

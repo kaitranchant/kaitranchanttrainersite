@@ -8,7 +8,7 @@ export const audiences = [
   {
     name: "Hybrid comp prep",
     description:
-      "Whether it's Hyrox, Deka, or another hybrid race, prep is more than being fit — it's being ready for the specific demands of race day. That means building your engine with running volume and compromised-running work, getting strong on the stations (sled push and pull, wall balls, lunges, farmer's carry), and pacing strategy so you don't blow up halfway through. Your prep block is built backwards from your race date, so you peak on the start line — not three weeks before it.",
+      "Whether it's HYROX, DEKA, or another hybrid race, prep is more than being fit — it's being ready for the specific demands of race day. That means building your engine with running volume and compromised-running work, getting strong on the stations (sled push and pull, wall balls, lunges, farmer's carry), and pacing strategy so you don't blow up halfway through. Your prep block is built backwards from your race date, so you peak on the start line — not three weeks before it.",
   },
   {
     name: "College-bound athletes",
@@ -112,7 +112,7 @@ export const testimonials = [
 export const faqs = [
   {
     q: "Can you get me ready for a specific competition date?",
-    a: "Yes — that's the core of what I do. Tell me your race or event date and we build backwards from it: a prep block with the right mix of strength, conditioning, and event-specific work, dosed so you peak on the day. Hyrox, Deka, a competitive season opener, or a testing combine — if there's a date on the calendar, we train to it.",
+    a: "Yes — that's the core of what I do. Tell me your race or event date and we build backwards from it: a prep block with the right mix of strength, conditioning, and event-specific work, dosed so you peak on the day. HYROX, DEKA, a competitive season opener, or a testing combine — if there's a date on the calendar, we train to it.",
   },
   {
     q: "Do you work with high school athletes trying to play in college?",

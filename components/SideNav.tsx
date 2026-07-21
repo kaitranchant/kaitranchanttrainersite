@@ -39,7 +39,7 @@ export function SideNav() {
       data-visible={showFab ? "true" : "false"}
       className="btn-accent book-fab fixed bottom-5 right-5 z-40 inline-flex rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-ink shadow-[0_10px_40px_rgba(255,92,31,0.35)] sm:bottom-7 sm:right-7 sm:px-6 sm:py-3.5"
     >
-      Book free consult
+      Book your consult
     </a>
   );
 }

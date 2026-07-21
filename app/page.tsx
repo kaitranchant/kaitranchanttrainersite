@@ -55,7 +55,7 @@ export default function Home() {
             <div className="w-full max-w-3xl lg:max-w-none">
               <div className="animate-fade-up flex flex-wrap gap-2.5">
                 <span className="rounded-full border border-accent/60 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-accent">
-                  Hyrox + Deka prep
+                  Hybrid comp prep
                 </span>
                 <span className="rounded-full border border-border px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-foreground">
                   College sport S&amp;C
@@ -85,7 +85,7 @@ export default function Home() {
                   data-book-cta
                   className="btn-accent inline-flex rounded-full bg-accent px-7 py-3.5 text-sm font-semibold tracking-wide text-accent-ink sm:text-base"
                 >
-                  Start your prep block
+                  Book your consult
                 </a>
                 <a
                   href={INSTAGRAM_HREF}
@@ -143,7 +143,7 @@ export default function Home() {
               <div className="mt-8 space-y-5 text-base leading-[1.6] text-muted sm:text-lg">
                 <p>
                   My name is Kai. I coach athletes who compete — hybrid
-                  competition athletes (Hyrox, Deka, and races like them)
+                  competition athletes (HYROX, DEKA, and races like them)
                   building toward a start line, and high school athletes
                   putting in off-season work to play in college. Programming
                   starts at your competition date and works back from there:
@@ -253,7 +253,7 @@ export default function Home() {
                 data-book-cta
                 className="btn-accent inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink"
               >
-                Book free consult
+                Book your consult
               </a>
             </div>
           </div>
@@ -365,7 +365,7 @@ export default function Home() {
                 data-book-cta
                 className="btn-accent inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink"
               >
-                Book free consult
+                Book your consult
               </a>
             </div>
           </div>
@@ -374,7 +374,7 @@ export default function Home() {
         {/* LOCATIONS */}
         <section
           id="locations"
-          className="scroll-mt-24 border-t border-border bg-background px-5 py-14 sm:px-10 lg:py-20"
+          className="scroll-mt-24 border-t border-border bg-surface px-5 py-14 sm:px-10 lg:py-20"
         >
           <div className="mx-auto max-w-6xl">
             <RevealHeading
@@ -433,7 +433,7 @@ export default function Home() {
                 data-book-cta
                 className="btn-accent inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink"
               >
-                Book free consult
+                Book your consult
               </a>
               <a
                 href="#services"
@@ -448,7 +448,7 @@ export default function Home() {
         {/* FAQ */}
         <section
           id="faq"
-          className="scroll-mt-24 border-t border-border bg-surface px-5 py-20 sm:px-10 lg:py-28"
+          className="scroll-mt-24 border-t border-border bg-background px-5 py-20 sm:px-10 lg:py-28"
         >
           <div className="mx-auto max-w-3xl">
             <RevealHeading
@@ -467,7 +467,7 @@ export default function Home() {
         {/* BOOK / CONTACT */}
         <section
           id="book"
-          className="scroll-mt-24 border-t-2 border-[rgba(243,241,237,0.28)] bg-background px-5 py-20 sm:px-10 lg:py-28"
+          className="scroll-mt-24 border-t-2 border-[rgba(243,241,237,0.28)] bg-surface px-5 py-20 sm:px-10 lg:py-28"
         >
           <div className="mx-auto max-w-6xl">
             <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
@@ -491,7 +491,7 @@ export default function Home() {
                     data-book-cta
                     className="btn-accent inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink"
                   >
-                    Book free consult
+                    Book your consult
                   </a>
                   <a
                     href="https://instagram.com/kaitranchant"

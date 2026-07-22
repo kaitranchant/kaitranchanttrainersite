@@ -105,7 +105,7 @@ export const testimonials = [
     tags: ["Body composition"],
     duration: "training for 2 years",
     quote:
-      "I can’t recommend Kai enough! I’ve never been someone who enjoys going to the gym, but the accountability has made all the difference. Every workout is encouraging, challenging, and tailored to where I am in life. At this stage, staying strong and healthy is more important than ever, and having someone who keeps me motivated and accountable has been invaluable. If you’re looking for a trainer who genuinely cares about your success, I highly recommend Kai!",
+      "I have been training with Kai for over two years now and my body strength has increased considerably. Through his programs, I’ve been able to help reverse signs of early bone loss. Kai pushes me out of my comfort zone because he knows I’m capable, even when I don’t see it myself. He also helps me set achievable goals for outside of the gym, whether it’s step targets or meal planning. Training with Kai has been one of the best decisions I’ve made for my health.",
   },
 ] as const;
 

@@ -99,10 +99,10 @@ export default function Home() {
               <p className="animate-fade-up-delay-2 mt-4 text-xs uppercase tracking-[0.18em] text-muted">
                 First consult is free — talk goals, get a plan
               </p>
-              <div className="animate-fade-up-delay-2 mt-10 grid grid-cols-3 divide-x divide-border border border-border">
+              <div className="animate-fade-up-delay-2 @container mt-10 grid grid-cols-3 divide-x divide-border border border-border">
                 {heroStats.map((stat) => (
-                  <div key={stat.label} className="px-2.5 py-4 sm:px-5">
-                    <p className="whitespace-nowrap font-display text-[13px] font-extrabold tracking-tight text-accent sm:text-2xl">
+                  <div key={stat.label} className="px-2.5 py-4">
+                    <p className="whitespace-nowrap font-display text-[clamp(12px,calc(4.6cqw_-_3px),24px)] font-extrabold tracking-tight text-accent">
                       {stat.value}
                     </p>
                     <p className="mt-1 text-[11px] leading-snug text-muted sm:text-xs">

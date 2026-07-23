@@ -193,11 +193,11 @@ export default function Home() {
               ]}
             />
 
-            <div className="mt-14 space-y-10">
+            <div className="mt-14 space-y-14 border-t border-border pt-10">
               {services.map((service) => (
                 <article
                   key={service.name}
-                  className="grid gap-6 border-t border-border pt-10 lg:grid-cols-[1fr_1fr]"
+                  className="grid gap-6 lg:grid-cols-[1fr_1fr]"
                 >
                   <div>
                     <div className="mb-3">

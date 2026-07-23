@@ -65,7 +65,7 @@ export default function Home() {
               <RevealHeading
                 as="h1"
                 className="mt-6 w-full font-display text-[2.35rem] font-extrabold uppercase leading-[1.04] tracking-tight text-foreground sm:text-5xl sm:leading-[1.02] lg:text-6xl xl:text-7xl"
-                staggerMs={16}
+                staggerMs={40}
                 eager
                 segments={[
                   { text: "Peak" },
@@ -137,7 +137,7 @@ export default function Home() {
                 className="font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
                 segments={[
                   {
-                    text: "Strength & conditioning for people with a date on the calendar.",
+                    text: "Strength & conditioning for athletes with a date on the calendar.",
                   },
                 ]}
               />

@@ -91,7 +91,7 @@ export const services = [
 
 export const testimonials = [
   {
-    name: "Nicole Sharpsteen",
+    name: "Nicole S.",
     tags: ["Body composition"],
     duration: "training for 3 years",
     quote:
@@ -99,7 +99,7 @@ export const testimonials = [
     photo: "/images/nicole-kai-selfie.png",
   },
   {
-    name: "Katie Johnston",
+    name: "Katie J.",
     tags: ["Volleyball Athlete"],
     duration: "training for 1 year",
     quote:
@@ -107,7 +107,7 @@ export const testimonials = [
     photo: "/images/katie-johnston.png",
   },
   {
-    name: "Lisa Noni",
+    name: "Lisa N.",
     tags: ["Body composition"],
     duration: "training for 2 years",
     quote:
@@ -115,7 +115,7 @@ export const testimonials = [
     photo: "/images/nicole-kai-selfie.png",
   },
   {
-    name: "Sherry Boor",
+    name: "Sherry B.",
     tags: ["Body composition"],
     duration: "training for 2 years",
     quote:

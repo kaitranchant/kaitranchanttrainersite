@@ -193,11 +193,15 @@ export default function Home() {
               ]}
             />
 
-            <div className="mt-14 space-y-14 border-t border-border pt-10">
-              {services.map((service) => (
+            <div className="mt-14 space-y-14 sm:space-y-10">
+              {services.map((service, index) => (
                 <article
                   key={service.name}
-                  className="grid gap-6 lg:grid-cols-[1fr_1fr]"
+                  className={`grid gap-6 lg:grid-cols-[1fr_1fr] ${
+                    index === 0
+                      ? "border-t border-border pt-10"
+                      : "sm:border-t sm:border-border sm:pt-10"
+                  }`}
                 >
                   <div>
                     <div className="mb-3">
@@ -213,9 +217,6 @@ export default function Home() {
                     />
                     <p className="mt-3 text-sm font-semibold text-accent">
                       {service.for}
-                    </p>
-                    <p className="mt-3 max-w-md leading-[1.6] text-muted">
-                      {service.blurb}
                     </p>
                     <ServiceIncludes items={service.includes} />
                   </div>

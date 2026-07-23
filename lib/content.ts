@@ -26,11 +26,10 @@ export const services = [
   {
     name: "Online Training",
     for: "For: racers with a date on the calendar, and athletes training on their own schedule",
-    blurb:
-      "Programming built around your competition calendar — race prep blocks, off-season builds, and in-season maintenance — with check-ins, form feedback, and accountability built in.",
     includes: [
-      "Custom programming built specifically around your goals — not a template",
-      "Full SwiftCoach access to track every workout, log progress, and see your week at a glance",
+      "Programming built around your competition calendar — race prep blocks, off-season builds, and in-season maintenance",
+      "Every plan written from scratch around your goals — not pulled from a template",
+      "Full SwiftCoach access to log workouts, track progress, and see your week at a glance",
       "Bi-weekly check-in calls to review progress and adjust your plan",
       "Direct messaging between sessions — ask questions, send form videos, get feedback in real time",
     ],
@@ -43,13 +42,12 @@ export const services = [
   {
     name: "In-Home Training",
     for: "For: athletes who want eyes on every session",
-    blurb:
-      "I come to you. Race prep, off-season builds, or a full performance block — coached in person, rep by rep, in whatever space you've got.",
     includes: [
-      "60-minute sessions, right at your location — no commute, no gym membership needed",
-      "Full SwiftCoach access to track every session and watch your progress add up",
-      "Warm-up, guided custom programming, and post-workout stretching, every single session",
-      "Real-time coaching and form correction, in person, every rep",
+      "I come to you — whether it's race-prep intervals, a strength phase, or a full performance block, coached wherever you train",
+      "60-minute sessions at your location — no commute, no gym membership needed",
+      "Real-time coaching and hands-on form correction, every single rep",
+      "Guided warm-up and post-workout stretching built into every session",
+      "Progress logged in SwiftCoach so you can see how each session builds over time",
     ],
     tiers: [
       { label: "Per session", price: "$75" },
@@ -60,13 +58,12 @@ export const services = [
   {
     name: "Track Day",
     for: "For: athletes who need real speed work, not just a treadmill",
-    blurb:
-      "Sprint mechanics, conditioning intervals, and race-pace work built into your prep block — solo or bring your training partners.",
     includes: [
-      "Sprint mechanics and acceleration work, coached in real time",
-      "Conditioning intervals built around your race, season, or combine timeline",
-      "Group sessions capped at 6 — real coaching, not a crowd",
-      "Logged in SwiftCoach so your speed work ties into the rest of your training",
+      "Sprint mechanics, conditioning intervals, and race-pace work built into your prep block",
+      "Live, in-person coaching on acceleration and top-end speed",
+      "Interval work structured around your race, season, or combine timeline",
+      "Small groups capped at 6 — real coaching, not a crowd, solo or bring your training partners",
+      "Speed sessions synced to SwiftCoach so they connect with the rest of your training",
     ],
     tiers: [
       { label: "Solo session", price: "$80" },
@@ -78,13 +75,12 @@ export const services = [
   {
     name: "Nutrition Coaching",
     for: "For: anyone whose training outpaces their eating",
-    blurb:
-      "Fuel the training, not a diet plan. Macros and meal structure that support race prep, off-season builds, and recovery — sustainable habits, clear targets, results you can keep.",
     includes: [
-      "Custom meal plan built around your goals, preferences, and restrictions — not a generic diet",
-      "Personalized macro targets that actually fit your training and your life",
-      "Monthly check-ins and adjustments, so your plan evolves as you do",
-      "SwiftCoach access for meal plans, shopping lists, logging, and check-ins — all in one place",
+      "Fuel for training, not a diet plan — built around your training load, race prep, and recovery",
+      "Meal plan built around your preferences and restrictions — real food, not a cookie-cutter diet",
+      "Macro targets that actually fit your schedule and your training",
+      "Bi-weekly check-ins so your plan evolves as you do",
+      "Meal plans, shopping lists, and logging all managed through SwiftCoach",
     ],
     tiers: [
       { label: "Per month", price: "$125/mo" },

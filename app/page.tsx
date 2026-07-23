@@ -373,84 +373,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* LOCATIONS */}
-        <section
-          id="locations"
-          className="scroll-mt-24 border-t border-border bg-surface px-5 py-14 sm:px-10 lg:py-20"
-        >
-          <div className="mx-auto max-w-6xl">
-            <RevealHeading
-              as="h2"
-              className="font-display max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
-              segments={[
-                {
-                  text: "In your home around the Twin Tiers—or online from anywhere.",
-                },
-              ]}
-            />
-            <div className="mt-8 grid gap-8 border-t border-border pt-8 sm:grid-cols-3 sm:gap-6">
-              <div>
-                <LineIcon name="home" className="mb-3 h-5 w-5 text-accent" />
-                <p className="text-xs uppercase tracking-[0.18em] text-muted">
-                  In-home
-                </p>
-                <p className="mt-3 font-display text-2xl font-bold tracking-tight">
-                  Horseheads · Elmira · Corning
-                </p>
-                <p className="mt-3 text-sm leading-[1.6] text-muted">
-                  I train at your place. Bring whatever space and gear you have —
-                  bodyweight, a garage rack, or just a yoga mat. We&apos;ll make
-                  it work.
-                </p>
-              </div>
-              <div>
-                <LineIcon name="globe" className="mb-3 h-5 w-5 text-accent" />
-                <p className="text-xs uppercase tracking-[0.18em] text-muted">
-                  Online
-                </p>
-                <p className="mt-3 font-display text-2xl font-bold tracking-tight">
-                  Coached from anywhere
-                </p>
-                <p className="mt-3 text-sm leading-[1.6] text-muted">
-                  Follow your program at home or the gym. Consults and check-ins
-                  happen over Zoom.
-                </p>
-              </div>
-              <div>
-                <LineIcon name="clock" className="mb-3 h-5 w-5 text-accent" />
-                <p className="text-xs uppercase tracking-[0.18em] text-muted">
-                  Session length
-                </p>
-                <p className="mt-3 font-display text-2xl font-bold tracking-tight">
-                  60 minutes
-                </p>
-                <p className="mt-3 text-sm leading-[1.6] text-muted">
-                  Warm-up, the day&apos;s block, cool-down. You just show up.
-                </p>
-              </div>
-            </div>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a
-                href={BOOKING_HREF}
-                data-book-cta
-                className="btn-accent inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink"
-              >
-                Book your consult
-              </a>
-              <a
-                href="#services"
-                className="text-sm text-muted underline-offset-4 transition hover:text-foreground hover:underline"
-              >
-                See pricing
-              </a>
-            </div>
-          </div>
-        </section>
-
         {/* FAQ */}
         <section
           id="faq"
-          className="scroll-mt-24 border-t border-border bg-background px-5 py-20 sm:px-10 lg:py-28"
+          className="scroll-mt-24 border-t border-border bg-surface px-5 py-20 sm:px-10 lg:py-28"
         >
           <div className="mx-auto max-w-3xl">
             <RevealHeading
@@ -469,7 +395,7 @@ export default function Home() {
         {/* BOOK / CONTACT */}
         <section
           id="book"
-          className="scroll-mt-24 border-t-2 border-[rgba(243,241,237,0.28)] bg-surface px-5 py-20 sm:px-10 lg:py-28"
+          className="scroll-mt-24 border-t-2 border-[rgba(243,241,237,0.28)] bg-background px-5 py-20 sm:px-10 lg:py-28"
         >
           <div className="mx-auto max-w-6xl">
             <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">

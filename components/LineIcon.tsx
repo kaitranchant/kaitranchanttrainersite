@@ -13,7 +13,8 @@ export function LineIcon({
     | "book"
     | "grad"
     | "sessions"
-    | "strength";
+    | "strength"
+    | "track";
   className?: string;
 }) {
   const common = {
@@ -113,6 +114,16 @@ export function LineIcon({
           <path d="M7 12h10" />
           <path d="M2 11v2" />
           <path d="M22 11v2" />
+        </svg>
+      );
+    case "track":
+      return (
+        <svg {...common}>
+          <ellipse cx="12" cy="12" rx="9" ry="5.5" />
+          <ellipse cx="12" cy="12" rx="6.5" ry="3.6" />
+          <ellipse cx="12" cy="12" rx="4" ry="1.8" />
+          <path d="M19.5 9.2v5.6" />
+          <path d="M20.5 9.6v4.8" />
         </svg>
       );
     default:

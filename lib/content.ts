@@ -58,6 +58,24 @@ export const services = [
     ],
   },
   {
+    name: "Track Day",
+    for: "For: athletes who need real speed work, not just a treadmill",
+    blurb:
+      "Sprint mechanics, conditioning intervals, and race-pace work built into your prep block — solo or bring your training partners.",
+    includes: [
+      "Sprint mechanics and acceleration work, coached in real time",
+      "Conditioning intervals built around your race, season, or combine timeline",
+      "Group sessions capped at 6 — real coaching, not a crowd",
+      "Logged in SwiftCoach so your speed work ties into the rest of your training",
+    ],
+    tiers: [
+      { label: "Solo session", price: "$80" },
+      { label: "Group (2–6 athletes)", price: "$45/athlete" },
+      { label: "4-week block (solo)", price: "$280" },
+      { label: "4-week block (group, per athlete)", price: "$160" },
+    ],
+  },
+  {
     name: "Nutrition Coaching",
     for: "For: anyone whose training outpaces their eating",
     blurb:

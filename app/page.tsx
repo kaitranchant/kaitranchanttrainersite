@@ -17,6 +17,7 @@ import {
 const serviceIcons = {
   "Online Training": "laptop",
   "In-Home Training": "home",
+  "Track Day": "track",
   "Nutrition Coaching": "leaf",
 } as const;
 

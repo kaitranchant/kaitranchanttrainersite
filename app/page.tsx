@@ -124,8 +124,8 @@ export default function Home() {
           <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
             <div className="relative aspect-[3/4] w-full overflow-hidden border border-border">
               <Image
-                src="/images/kai-about-sled4.png"
-                alt="Kai Tranchant pushing a resistance sled in the gym"
+                src="/images/kai-about-barbell.png"
+                alt="Kai Tranchant resting beside a barbell in the gym"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 40vw"

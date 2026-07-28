@@ -44,11 +44,11 @@ export default function Home() {
         >
           <div className="relative h-[55svh] overflow-hidden lg:h-auto lg:min-h-[100svh]">
             <Image
-              src="/images/kai-hero.png"
-              alt="Kai Tranchant pulling a resistance sled in the gym"
+              src="/images/HeroSledImage.JPEG"
+              alt="Kai Tranchant pushing a Torque sled in the gym"
               fill
               priority
-              className="object-cover object-[center_28%]"
+              className="object-cover object-[center_20%]"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
@@ -124,7 +124,7 @@ export default function Home() {
           <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
             <div className="relative aspect-[3/4] w-full overflow-hidden border border-border">
               <Image
-                src="/images/kai-about-barbell.png"
+                src="/images/AboutBarbellImage.JPEG"
                 alt="Kai Tranchant resting beside a barbell in the gym"
                 fill
                 className="object-cover object-center"
@@ -341,34 +341,45 @@ export default function Home() {
           id="not-competing"
           className="scroll-mt-24 border-t border-border bg-background px-5 py-14 sm:px-10 lg:py-20"
         >
-          <div className="mx-auto max-w-6xl">
-            <RevealHeading
-              as="h2"
-              className="font-display max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
-              segments={[
-                { text: "Not competing?" },
-                {
-                  text: "Same standards, your pace.",
-                  className: "block text-muted",
-                },
-              ]}
-            />
-            <p className="mt-6 max-w-2xl text-base leading-[1.6] text-muted sm:text-lg">
-              Plenty of my clients aren&apos;t chasing a start line — they&apos;re
-              changing their body composition, coming back from an injury, or
-              staying strong and capable as they age. The training runs on the
-              same principles: progressive overload, movement quality, and a
-              program that meets you where you are. No race required — just a
-              reason.
-            </p>
-            <div className="mt-8">
-              <a
-                href={BOOKING_HREF}
-                data-book-cta
-                className="btn-accent inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink"
-              >
-                Book your consult
-              </a>
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
+            <div>
+              <RevealHeading
+                as="h2"
+                className="font-display max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+                segments={[
+                  { text: "Not competing?" },
+                  {
+                    text: "Same standards, your pace.",
+                    className: "block text-muted",
+                  },
+                ]}
+              />
+              <p className="mt-6 max-w-2xl text-base leading-[1.6] text-muted sm:text-lg">
+                Plenty of my clients aren&apos;t chasing a start line — they&apos;re
+                changing their body composition, coming back from an injury, or
+                staying strong and capable as they age. The training runs on the
+                same principles: progressive overload, movement quality, and a
+                program that meets you where you are. No race required — just a
+                reason.
+              </p>
+              <div className="mt-8">
+                <a
+                  href={BOOKING_HREF}
+                  data-book-cta
+                  className="btn-accent inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink"
+                >
+                  Book your consult
+                </a>
+              </div>
+            </div>
+            <div className="relative aspect-[3/4] w-full overflow-hidden border border-border">
+              <Image
+                src="/images/GenPopImage.JPEG"
+                alt="Kai Tranchant training a client in the gym"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
             </div>
           </div>
         </section>

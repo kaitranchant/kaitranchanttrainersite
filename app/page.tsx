@@ -342,7 +342,7 @@ export default function Home() {
           className="scroll-mt-24 border-t border-border bg-background px-5 py-14 sm:px-10 lg:py-20"
         >
           <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
-            <div>
+            <div className="order-2 lg:order-1">
               <RevealHeading
                 as="h2"
                 className="font-display max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
@@ -372,7 +372,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="relative aspect-[3/4] w-full overflow-hidden border border-border">
+            <div className="relative order-1 aspect-[3/4] w-full overflow-hidden border border-border lg:order-2">
               <Image
                 src="/images/GenPopImage.JPEG"
                 alt="Kai Tranchant training a client in the gym"

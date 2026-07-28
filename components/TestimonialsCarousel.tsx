@@ -1,15 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
-import { SafePhoto } from "@/components/SafePhoto";
 
 export type Testimonial = {
   name: string;
   tags: readonly string[];
   duration: string;
   quote: string;
-  photo?: string;
   expandable?: boolean;
 };
 
@@ -179,38 +176,20 @@ export function TestimonialsCarousel({
             data-testimonial-card
             className="w-full shrink-0 snap-start border-t border-border pt-6 sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
           >
-            <div className="mb-5 flex items-center gap-3">
-              {t.photo ? (
-                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-media border border-border sm:h-20 sm:w-20">
-                  <SafePhoto
-                    src={t.photo}
-                    alt={t.name}
-                    className="object-cover object-center"
-                    sizes="80px"
-                  />
-                </div>
-              ) : (
-                <ImagePlaceholder
-                  label="Client photo"
-                  className="h-16 w-16 shrink-0 rounded-media sm:h-20 sm:w-20"
-                  ratio="aspect-square"
-                />
-              )}
-              <div className="min-w-0">
-                <p className="text-sm text-foreground">{t.name}</p>
-                <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
-                  {t.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="shrink-0 rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-accent-ink whitespace-nowrap"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                  <span className="text-xs text-muted whitespace-nowrap">
-                    {t.duration}
+            <div className="mb-5">
+              <p className="text-sm text-foreground">{t.name}</p>
+              <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                {t.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="shrink-0 rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-accent-ink whitespace-nowrap"
+                  >
+                    {tag}
                   </span>
-                </div>
+                ))}
+                <span className="text-xs text-muted whitespace-nowrap">
+                  {t.duration}
+                </span>
               </div>
             </div>
             <TestimonialQuote

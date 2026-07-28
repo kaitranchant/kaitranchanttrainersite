@@ -34,7 +34,7 @@ function TestimonialQuote({
 
   const cutIndex = quote.indexOf(LISA_PREVIEW_END);
   const splitAt =
-    cutIndex === -1 ? PREVIEW_CHARS : cutIndex + LISA_PREVIEW_END.length;
+    cutIndex === -1 ? Math.min(220, quote.length) : cutIndex + LISA_PREVIEW_END.length;
   const head = quote.slice(0, splitAt).trimEnd();
   const tail = quote.slice(splitAt).trimStart();
 

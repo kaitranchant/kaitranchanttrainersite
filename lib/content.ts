@@ -110,9 +110,9 @@ export const testimonials = [
     name: "Lisa N.",
     tags: ["Body composition"],
     duration: "training for 2 years",
+    expandable: true,
     quote:
-      "I can’t recommend Kai enough! I’ve never been someone who enjoys going to the gym, but the accountability has made all the difference. Every workout is encouraging, challenging, and tailored to where I am in life. At this stage, staying strong and healthy is more important than ever, and having someone who keeps me motivated and accountable has been invaluable. If you’re looking for a trainer who genuinely cares about your success, I highly recommend Kai!",
-    photo: "/images/nicole-kai-selfie.png",
+      "When I started training with Kai, my goals were to build muscle, improve flexibility, and move without pain. Every workout is thoughtfully planned, with an emphasis on proper form, functional strength, and steady progress. Kai pays close attention to how I move, makes adjustments when needed, and explains the purpose behind each exercise. That gives me confidence that I’m training both safely and effectively. His knowledge of movement and biomechanics has made a huge difference in helping me build strength while eliminating pain. Today, my knee and lower back pain are gone, my flexibility has improved tremendously, and everyday activities feel easier and more comfortable. As an added bonus, I’ve lost over 25 pounds. But what matters most to me is how much better, stronger, and more capable I feel. Kai’s support goes beyond the workouts. He knows when to challenge me, when to encourage me, and how to keep me focused on how far I’ve come. Because of his guidance, I’ve learned that non-scale victories can mean even more than the number on the scale. If you’re looking for a trainer who is knowledgeable, encouraging, and genuinely invested in your success, I can’t recommend Kai highly enough.",
   },
   {
     name: "Sherry B.",

@@ -44,7 +44,7 @@ export default function Home() {
         >
           <div className="relative h-[55svh] overflow-hidden lg:h-auto lg:min-h-[100svh]">
             <Image
-              src="/images/HeroSledImage.JPEG"
+              src="/images/HeroSled2.JPEG"
               alt="Kai Tranchant pushing a Torque sled in the gym"
               fill
               priority

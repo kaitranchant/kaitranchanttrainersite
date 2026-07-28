@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { SafePhoto } from "@/components/SafePhoto";
 
@@ -10,7 +10,69 @@ export type Testimonial = {
   duration: string;
   quote: string;
   photo?: string;
+  expandable?: boolean;
 };
+
+const LISA_PREVIEW_END = "safely and effectively.";
+
+function TestimonialQuote({
+  quote,
+  expandable = false,
+}: {
+  quote: string;
+  expandable?: boolean;
+}) {
+  const [open, setOpen] = useState(false);
+
+  if (!expandable) {
+    return (
+      <p className="text-sm leading-[1.6] text-muted sm:text-base">
+        &ldquo;{quote}&rdquo;
+      </p>
+    );
+  }
+
+  const cutIndex = quote.indexOf(LISA_PREVIEW_END);
+  const splitAt =
+    cutIndex === -1 ? PREVIEW_CHARS : cutIndex + LISA_PREVIEW_END.length;
+  const head = quote.slice(0, splitAt).trimEnd();
+  const tail = quote.slice(splitAt).trimStart();
+
+  return (
+    <div>
+      <p className="text-sm leading-[1.6] text-muted sm:text-base">
+        &ldquo;{head}
+        {!open ? "…" : null}
+        {!open ? <>&rdquo;</> : null}
+      </p>
+      <div className="faq-answer" data-open={open}>
+        <div>
+          <p className="text-sm leading-[1.6] text-muted sm:text-base">
+            {tail}&rdquo;
+          </p>
+        </div>
+      </div>
+      <button
+        type="button"
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+        className="tap-row group mt-3 inline-flex items-center gap-2.5 py-1.5 text-left transition"
+      >
+        <span className="text-xs uppercase tracking-[0.16em] text-muted transition group-hover:text-foreground">
+          {open ? "See less" : "See more"}
+        </span>
+        <span
+          className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border text-sm leading-none text-muted transition group-hover:border-accent group-hover:text-accent group-active:scale-95 ${
+            open ? "rotate-45 border-accent text-accent" : ""
+          }`}
+          aria-hidden
+        >
+          +
+        </span>
+      </button>
+    </div>
+  );
+}
 
 export function TestimonialsCarousel({
   items,
@@ -151,9 +213,10 @@ export function TestimonialsCarousel({
                 </div>
               </div>
             </div>
-            <p className="text-sm leading-[1.6] text-muted sm:text-base">
-              &ldquo;{t.quote}&rdquo;
-            </p>
+            <TestimonialQuote
+              quote={t.quote}
+              expandable={"expandable" in t && t.expandable === true}
+            />
           </blockquote>
         ))}
       </div>

@@ -13,8 +13,15 @@ const manrope = Manrope({
   subsets: ["latin"],
 });
 
+/** Prefer custom domain when set; otherwise the current Vercel deployment host. */
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kaitranchant.com"),
+  metadataBase: new URL(siteUrl),
   title:
     "Kai Tranchant | Hybrid Comp Prep & College Sport S&C — Horseheads, Elmira & Corning, NY",
   description:

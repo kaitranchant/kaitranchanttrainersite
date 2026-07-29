@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, Manrope } from "next/font/google";
+import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
+import { getSiteUrl } from "@/lib/site";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -13,21 +15,8 @@ const manrope = Manrope({
   subsets: ["latin"],
 });
 
-/**
- * Prefer an explicit site URL, then Vercel's stable production host.
- * Do not use VERCEL_URL — those per-deploy hosts are often protected and
- * social scrapers can't fetch og:image from them.
- */
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000");
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(getSiteUrl()),
   title:
     "Kai Tranchant | Hybrid Comp Prep & College Sport S&C — Horseheads, Elmira & Corning, NY",
   description:
@@ -59,7 +48,10 @@ export default function RootLayout({
       lang="en"
       className={`${archivo.variable} ${manrope.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-background text-foreground">{children}</body>
+      <body className="min-h-full bg-background text-foreground">
+        <LocalBusinessJsonLd />
+        {children}
+      </body>
     </html>
   );
 }

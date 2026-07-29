@@ -14,15 +14,25 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kaitranchant.com"),
   title:
     "Kai Tranchant | Hybrid Comp Prep & College Sport S&C — Horseheads, Elmira & Corning, NY",
   description:
     "Strength & conditioning for hybrid competition athletes (HYROX, DEKA, and more) and college-bound athletes. Off-season strength, race-day conditioning, programming built around your competition calendar. In person across the Twin Tiers or coached online.",
   openGraph: {
-    title:
-      "Kai Tranchant | Hybrid Comp Prep & College Sport S&C",
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    siteName: "Kai Tranchant",
+    title: "Kai Tranchant | Hybrid Comp Prep & College Sport S&C",
     description:
       "Peak when it counts. Competition prep and off-season S&C — in person across the Twin Tiers (Horseheads, Elmira, Corning) or coached online.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kai Tranchant | Hybrid Comp Prep & College Sport S&C",
+    description:
+      "Peak when it counts. Competition prep and off-season S&C — in person across the Twin Tiers or coached online.",
   },
 };
 

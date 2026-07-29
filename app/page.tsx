@@ -84,6 +84,7 @@ export default function Home() {
                 <a
                   href={BOOKING_HREF}
                   data-book-cta
+                  data-book-location="hero"
                   className="btn-accent inline-flex rounded-full bg-accent px-7 py-3.5 text-sm font-semibold tracking-wide text-accent-ink sm:text-base"
                 >
                   Book your consult
@@ -253,6 +254,7 @@ export default function Home() {
               <a
                 href={BOOKING_HREF}
                 data-book-cta
+                data-book-location="services"
                 className="btn-accent inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink"
               >
                 Book your consult
@@ -366,6 +368,7 @@ export default function Home() {
                 <a
                   href={BOOKING_HREF}
                   data-book-cta
+                  data-book-location="not-competing"
                   className="btn-accent inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink"
                 >
                   Book your consult
@@ -428,6 +431,7 @@ export default function Home() {
                   <a
                     href={BOOKING_HREF}
                     data-book-cta
+                    data-book-location="book"
                     className="btn-accent inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink"
                   >
                     Book your consult

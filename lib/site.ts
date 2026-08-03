@@ -1,17 +1,20 @@
+/** Canonical production domain — used for SEO, OG, sitemap, and schema. */
+export const PRODUCTION_SITE_URL = "https://kaitranchant.com";
+
 /**
- * Prefer an explicit site URL, then Vercel's stable production host.
- * Do not use VERCEL_URL alone — those per-deploy hosts are often protected and
- * social scrapers can't fetch og:image from them.
+ * Prefer an explicit env override, then the production domain outside local
+ * development. Avoids per-deploy Vercel hosts that social scrapers can't fetch.
  */
 export function getSiteUrl() {
-  return (
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : process.env.VERCEL_URL
-        ? `https://${process.env.VERCEL_URL}`
-        : "http://localhost:3000")
-  );
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL;
+  }
+
+  if (process.env.NODE_ENV === "development") {
+    return "http://localhost:3000";
+  }
+
+  return PRODUCTION_SITE_URL;
 }
 
 export const SITE = {

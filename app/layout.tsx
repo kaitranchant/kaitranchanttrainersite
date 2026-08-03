@@ -19,6 +19,9 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
+  alternates: {
+    canonical: "/",
+  },
   title:
     "Kai Tranchant | Hybrid Comp Prep & College Sport S&C — Horseheads, Elmira & Corning, NY",
   description:

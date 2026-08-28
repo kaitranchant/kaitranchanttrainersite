@@ -59,9 +59,15 @@ function CardHeader({
   );
 }
 
-function Highlight({ children }: { children: string }) {
+function Highlights({ items }: { items: readonly string[] }) {
   return (
-    <p className="mt-4 text-sm font-semibold text-positive">{children}</p>
+    <div className="mt-4 space-y-1">
+      {items.map((item) => (
+        <p key={item} className="text-sm font-semibold text-positive">
+          {item}
+        </p>
+      ))}
+    </div>
   );
 }
 
@@ -163,8 +169,8 @@ function ResultBody({ result }: { result: Result }) {
               </div>
             ))}
           </div>
-          {"highlight" in result && result.highlight ? (
-            <Highlight>{result.highlight}</Highlight>
+          {"highlights" in result && result.highlights ? (
+            <Highlights items={result.highlights} />
           ) : null}
         </>
       );
@@ -172,8 +178,8 @@ function ResultBody({ result }: { result: Result }) {
       return (
         <>
           <ComparisonTable result={result} />
-          {"highlight" in result && result.highlight ? (
-            <Highlight>{result.highlight}</Highlight>
+          {"highlights" in result && result.highlights ? (
+            <Highlights items={result.highlights} />
           ) : null}
         </>
       );

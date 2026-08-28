@@ -103,7 +103,7 @@ export const results = [
       { label: "rpg", before: "2.8", after: "4.8", direction: "up" },
       { label: "shooting", before: "34%", after: "57%", direction: "up" },
     ],
-    highlight: "NTL All-Star first team",
+    highlights: ["NTL All-Star first team"],
   },
   {
     kind: "snapshot",
@@ -114,7 +114,10 @@ export const results = [
       { value: "8.5", label: "ppg" },
       { value: "42%", label: "shooting" },
     ],
-    highlight: "NTL All-Star second team",
+    highlights: [
+      "Starting Varsity PG freshman year",
+      "NTL All-Star second team",
+    ],
   },
   {
     kind: "comparison",

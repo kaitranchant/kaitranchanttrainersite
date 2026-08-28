@@ -9,6 +9,7 @@
   --border: rgba(243, 241, 237, 0.16);
   --accent: #ff5c1f;
   --accent-ink: #0d0c0b;
+  --positive: #3ccf80;
   --radius-media: 1rem;
 }
 
@@ -21,8 +22,17 @@
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
+  --color-positive: var(--positive);
   --font-sans: var(--font-manrope);
   --font-display: var(--font-archivo);
+}
+
+.bg-positive {
+  background-color: var(--positive);
+}
+
+.text-positive {
+  color: var(--positive);
 }
 
 html {

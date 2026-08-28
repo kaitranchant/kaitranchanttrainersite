@@ -3,15 +3,14 @@ import { AudienceCards } from "@/components/AudienceCards";
 import { FAQ } from "@/components/FAQ";
 import { LineIcon } from "@/components/LineIcon";
 import { PhoneMockups } from "@/components/PhoneMockups";
+import { Results } from "@/components/Results";
 import { RevealHeading } from "@/components/RevealHeading";
 import { ServiceIncludes } from "@/components/ServiceIncludes";
 import { SideNav } from "@/components/SideNav";
-import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import {
   BOOKING_HREF,
   INSTAGRAM_HREF,
   services,
-  testimonials,
 } from "@/lib/content";
 
 const serviceIcons = {
@@ -26,10 +25,6 @@ const heroStats = [
   { value: "3 yrs", label: "HS & collegiate S&C" },
   { value: "CPT, BS ExSci", label: "NASM Certified" },
 ];
-
-const publishedTestimonials = testimonials.filter(
-  (t) => !t.quote.toLowerCase().includes("placeholder"),
-);
 
 export default function Home() {
   return (
@@ -313,8 +308,7 @@ export default function Home() {
           className="scroll-mt-24 border-t border-border bg-surface px-5 py-20 sm:px-10 lg:py-28"
         >
           <div className="mx-auto max-w-6xl">
-            <TestimonialsCarousel
-              items={publishedTestimonials}
+            <Results
               header={
                 <RevealHeading
                   as="h2"

@@ -89,35 +89,78 @@ export const services = [
   },
 ] as const;
 
-export const testimonials = [
+export const results = [
   {
-    name: "Nicole S.",
-    tags: ["Body composition"],
-    duration: "training for 3 years",
-    quote:
-      "I can’t recommend Kai enough! I’ve never been someone who enjoys going to the gym, but the accountability has made all the difference. Every workout is encouraging, challenging, and tailored to where I am in life. At this stage, staying strong and healthy is more important than ever, and having someone who keeps me motivated and accountable has been invaluable. If you’re looking for a trainer who genuinely cares about your success, I highly recommend Kai!",
+    kind: "snapshot",
+    name: "Aidan B",
+    tag: "Varsity basketball",
+    context: "Strength & Conditioning before Freshman Season",
+    stats: [
+      { value: "8.5", label: "ppg" },
+      { value: "42%", label: "shooting" },
+    ],
+    highlight: "NTL All-Star second team",
   },
   {
-    name: "Katie J.",
-    tags: ["Volleyball Athlete"],
-    duration: "training for 1 year",
-    quote:
-      "Kai’s knowledge and expertise is evident in every session and his guidance has led to consistent, measurable results. He has the perfect blend of encouragement and challenge that keeps me progressing each week. Beyond the workouts, he holds me accountable for hydration and nutrition creating a comprehensive training experience!",
+    kind: "comparison",
+    name: "Athens Girls Volleyball",
+    tag: "Varsity Volleyball",
+    context: "Team Strength & Conditioning between 23-24 and 24-25 seasons",
+    beforeLabel: "2023–24",
+    afterLabel: "2024–25",
+    rows: [
+      { label: "Record", before: "4–11", after: "14–16", direction: "up" },
+      { label: "Conference", before: "16th", after: "4th", direction: "up" },
+    ],
   },
   {
-    name: "Lisa N.",
-    tags: ["Body composition"],
-    duration: "training for 2 years",
-    expandable: true,
-    quote:
-      "When I started training with Kai, my goals were to build muscle, improve flexibility, and move without pain. Every workout is thoughtfully planned, with an emphasis on proper form, functional strength, and steady progress. Kai pays close attention to how I move, makes adjustments when needed, and explains the purpose behind each exercise. That gives me confidence that I’m training both safely and effectively. His knowledge of movement and biomechanics has made a huge difference in helping me build strength while eliminating pain. Today, my knee and lower back pain are gone, my flexibility has improved tremendously, and everyday activities feel easier and more comfortable. As an added bonus, I’ve lost over 25 pounds. But what matters most to me is how much better, stronger, and more capable I feel. Kai’s support goes beyond the workouts. He knows when to challenge me, when to encourage me, and how to keep me focused on how far I’ve come. Because of his guidance, I’ve learned that non-scale victories can mean even more than the number on the scale. If you’re looking for a trainer who is knowledgeable, encouraging, and genuinely invested in your success, I can’t recommend Kai highly enough.",
+    kind: "comparison",
+    name: "Lucas S",
+    tag: "Varsity basketball",
+    context: "Strength & Conditioning before Junior Season",
+    featured: true,
+    beforeLabel: "Sophomore",
+    afterLabel: "Junior",
+    rows: [
+      { label: "mpg", before: "17.9", after: "26.0", direction: "up" },
+      { label: "ppg", before: "4.6", after: "13.9", direction: "up" },
+      { label: "rpg", before: "2.8", after: "4.8", direction: "up" },
+      { label: "shooting", before: "34%", after: "57%", direction: "up" },
+    ],
+    highlight: "NTL All-Star first team",
   },
   {
-    name: "Sherry B.",
-    tags: ["Body composition"],
-    duration: "training for 2 years",
-    quote:
-      "I have been training with Kai for over two years now and my body strength has increased considerably. Through his programs, I’ve been able to help reverse signs of early bone loss. Kai pushes me out of my comfort zone because he knows I’m capable, even when I don’t see it myself. He also helps me set achievable goals for outside of the gym, whether it’s step targets or meal planning. Training with Kai has been one of the best decisions I’ve made for my health.",
+    kind: "changes",
+    name: "Akshay R",
+    tag: "Body composition",
+    context: "Weight loss program",
+    changes: [
+      { direction: "down", value: "65 lbs", label: "fat" },
+      { direction: "up", value: "16 lbs", label: "muscle" },
+    ],
+  },
+  {
+    kind: "changes",
+    name: "Nick G",
+    tag: "College baseball",
+    context: "Bulking for freshman season, Division II",
+    changes: [{ direction: "up", value: "5 lbs", label: "muscle in 4 weeks" }],
+  },
+  {
+    kind: "changes",
+    name: "Lisa N",
+    tag: "Body composition",
+    context: "Weight loss program",
+    changes: [
+      { direction: "down", value: "35 lbs", label: "fat in 6 months" },
+    ],
+  },
+  {
+    kind: "story",
+    name: "Eunice N",
+    tag: "Recovery",
+    headline: "Back to distance running at age 80",
+    context: "Marathon runner who was sidelined for years due to knee injury",
   },
 ] as const;
 

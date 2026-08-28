@@ -91,6 +91,21 @@ export const services = [
 
 export const results = [
   {
+    kind: "comparison",
+    name: "Lucas S",
+    tag: "Varsity basketball",
+    context: "Strength & Conditioning before Junior Season",
+    featured: true,
+    beforeLabel: "Sophomore",
+    afterLabel: "Junior",
+    rows: [
+      { label: "ppg", before: "4.6", after: "13.9", direction: "up" },
+      { label: "rpg", before: "2.8", after: "4.8", direction: "up" },
+      { label: "shooting", before: "34%", after: "57%", direction: "up" },
+    ],
+    highlight: "NTL All-Star first team",
+  },
+  {
     kind: "snapshot",
     name: "Aidan B",
     tag: "Varsity basketball",
@@ -114,20 +129,18 @@ export const results = [
     ],
   },
   {
-    kind: "comparison",
-    name: "Lucas S",
-    tag: "Varsity basketball",
-    context: "Strength & Conditioning before Junior Season",
-    featured: true,
-    beforeLabel: "Sophomore",
-    afterLabel: "Junior",
-    rows: [
-      { label: "mpg", before: "17.9", after: "26.0", direction: "up" },
-      { label: "ppg", before: "4.6", after: "13.9", direction: "up" },
-      { label: "rpg", before: "2.8", after: "4.8", direction: "up" },
-      { label: "shooting", before: "34%", after: "57%", direction: "up" },
-    ],
-    highlight: "NTL All-Star first team",
+    kind: "changes",
+    name: "Nick G",
+    tag: "College baseball",
+    context: "Bulking for freshman season, Division II",
+    changes: [{ direction: "up", value: "5 lbs", label: "muscle in 4 weeks" }],
+  },
+  {
+    kind: "story",
+    name: "Eunice N",
+    tag: "Recovery",
+    headline: "Back to distance running at age 80",
+    context: "Marathon runner who was sidelined for years due to knee injury",
   },
   {
     kind: "changes",
@@ -141,26 +154,12 @@ export const results = [
   },
   {
     kind: "changes",
-    name: "Nick G",
-    tag: "College baseball",
-    context: "Bulking for freshman season, Division II",
-    changes: [{ direction: "up", value: "5 lbs", label: "muscle in 4 weeks" }],
-  },
-  {
-    kind: "changes",
     name: "Lisa N",
     tag: "Body composition",
     context: "Weight loss program",
     changes: [
       { direction: "down", value: "35 lbs", label: "fat in 6 months" },
     ],
-  },
-  {
-    kind: "story",
-    name: "Eunice N",
-    tag: "Recovery",
-    headline: "Back to distance running at age 80",
-    context: "Marathon runner who was sidelined for years due to knee injury",
   },
 ] as const;
 

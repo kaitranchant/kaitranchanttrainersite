@@ -188,89 +188,148 @@ function ResultBody({ result }: { result: Result }) {
 
 export function Results({ header }: { header: ReactNode }) {
   const scrollerRef = useRef<HTMLDivElement>(null);
+  const activeIndexRef = useRef(0);
   const loopingRef = useRef(false);
+  const scrollRafRef = useRef(0);
   const [viewportHeight, setViewportHeight] = useState<number>();
   const loopItems = [...results, ...results];
 
-  function cardStep() {
+  function getCards() {
+    return scrollerRef.current?.querySelectorAll<HTMLElement>("[data-result-card]") ?? [];
+  }
+
+  function syncActiveIndex() {
     const el = scrollerRef.current;
-    if (!el) return 0;
-    const card = el.querySelector<HTMLElement>("[data-result-card]");
-    return card ? card.offsetWidth + 24 : 0;
+    if (!el || loopingRef.current) return;
+
+    const cards = getCards();
+    if (!cards.length) return;
+
+    let closest = 0;
+    let closestDistance = Infinity;
+
+    cards.forEach((card, index) => {
+      const distance = Math.abs(card.offsetLeft - el.scrollLeft);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closest = index;
+      }
+    });
+
+    activeIndexRef.current = closest % results.length;
   }
 
   function syncViewportHeight() {
     const scroller = scrollerRef.current;
     if (!scroller) return;
 
-    const scrollerRect = scroller.getBoundingClientRect();
-    const styles = window.getComputedStyle(scroller);
-    const paddingBottom = Number.parseFloat(styles.paddingBottom) || 0;
-    let maxHeight = 0;
+    const cards = getCards();
+    if (!cards.length) return;
 
-    scroller.querySelectorAll<HTMLElement>("[data-result-card]").forEach((card) => {
+    const scrollerRect = scroller.getBoundingClientRect();
+    const paddingBottom =
+      Number.parseFloat(window.getComputedStyle(scroller).paddingBottom) || 0;
+    const visibleLogical = new Set<number>();
+
+    cards.forEach((card, index) => {
       const rect = card.getBoundingClientRect();
       if (rect.right > scrollerRect.left + 1 && rect.left < scrollerRect.right - 1) {
-        maxHeight = Math.max(maxHeight, card.offsetHeight);
+        visibleLogical.add(index % results.length);
       }
     });
 
-    if (maxHeight > 0) {
-      const nextHeight = maxHeight + paddingBottom;
-      setViewportHeight((prev) => (prev === nextHeight ? prev : nextHeight));
+    if (visibleLogical.size === 0) {
+      visibleLogical.add(activeIndexRef.current);
     }
+
+    let maxHeight = 0;
+    visibleLogical.forEach((logicalIndex) => {
+      const card = cards[logicalIndex];
+      if (!card) return;
+      maxHeight = Math.max(maxHeight, card.offsetHeight, card.scrollHeight);
+    });
+
+    const nextHeight = maxHeight + paddingBottom;
+    setViewportHeight((prev) => (prev === nextHeight ? prev : nextHeight));
   }
 
-  function setStart() {
+  function scrollToPhysical(index: number, behavior: ScrollBehavior = "smooth") {
     const el = scrollerRef.current;
-    const step = cardStep();
-    if (!el || !step) return;
-    el.scrollLeft = 0;
+    const cards = getCards();
+    const card = cards[index];
+    if (!el || !card) return;
+
+    el.scrollTo({ left: card.offsetLeft, behavior });
   }
 
-  function normalizeLoop() {
+  function afterScrollEnd(onDone: () => void) {
     const el = scrollerRef.current;
-    const step = cardStep();
-    if (!el || !step || loopingRef.current) return;
+    if (!el) return;
 
-    const setWidth = results.length * step;
-    if (el.scrollLeft >= setWidth) {
-      loopingRef.current = true;
-      el.scrollLeft = el.scrollLeft - setWidth;
-      requestAnimationFrame(() => {
-        loopingRef.current = false;
-      });
-    }
-  }
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      el.removeEventListener("scrollend", finish);
+      window.clearTimeout(fallbackId);
+      onDone();
+    };
 
-  function handleScroll() {
-    normalizeLoop();
-    syncViewportHeight();
+    const fallbackId = window.setTimeout(finish, 450);
+    el.addEventListener("scrollend", finish, { once: true });
   }
 
   function scrollByCard(direction: -1 | 1) {
     const el = scrollerRef.current;
-    const step = cardStep();
-    if (!el || !step) return;
+    if (!el || loopingRef.current) return;
 
-    const setWidth = results.length * step;
+    const cards = getCards();
+    const count = results.length;
+    if (!cards.length) return;
 
-    if (direction === -1 && el.scrollLeft <= 8) {
+    const current = activeIndexRef.current;
+    const next = (current + direction + count) % count;
+
+    if (direction === 1 && current === count - 1) {
       loopingRef.current = true;
-      el.scrollLeft = setWidth;
-      requestAnimationFrame(() => {
+      scrollToPhysical(count, "smooth");
+      afterScrollEnd(() => {
+        el.scrollLeft = cards[0].offsetLeft;
+        activeIndexRef.current = 0;
         loopingRef.current = false;
-        el.scrollBy({ left: -step, behavior: "smooth" });
+        syncViewportHeight();
       });
       return;
     }
 
-    el.scrollBy({ left: direction * step, behavior: "smooth" });
+    if (direction === -1 && current === 0) {
+      loopingRef.current = true;
+      el.scrollLeft = cards[count].offsetLeft;
+      requestAnimationFrame(() => {
+        scrollToPhysical(count - 1, "smooth");
+        afterScrollEnd(() => {
+          activeIndexRef.current = count - 1;
+          loopingRef.current = false;
+          syncViewportHeight();
+        });
+      });
+      return;
+    }
+
+    activeIndexRef.current = next;
+    scrollToPhysical(next, "smooth");
+    afterScrollEnd(() => syncViewportHeight());
+  }
+
+  function handleScroll() {
+    syncActiveIndex();
+    cancelAnimationFrame(scrollRafRef.current);
+    scrollRafRef.current = requestAnimationFrame(() => syncViewportHeight());
   }
 
   useLayoutEffect(() => {
-    setStart();
-    syncViewportHeight();
+    const id = requestAnimationFrame(() => syncViewportHeight());
+    return () => cancelAnimationFrame(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -283,17 +342,13 @@ export function Results({ header }: { header: ReactNode }) {
       resizeObserver.observe(card);
     });
 
-    const onResize = () => {
-      setStart();
-      syncViewportHeight();
-    };
-
     scroller.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", onResize);
+    window.addEventListener("resize", syncViewportHeight);
 
     return () => {
+      cancelAnimationFrame(scrollRafRef.current);
       scroller.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", onResize);
+      window.removeEventListener("resize", syncViewportHeight);
       resizeObserver.disconnect();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -324,12 +379,12 @@ export function Results({ header }: { header: ReactNode }) {
       </div>
 
       <div
-        className="mt-12 overflow-hidden transition-[height] duration-300 ease-out motion-reduce:transition-none"
+        className="mt-12 overflow-visible transition-[height] duration-300 ease-out motion-reduce:transition-none"
         style={viewportHeight ? { height: `${viewportHeight}px` } : undefined}
       >
         <div
           ref={scrollerRef}
-          className="flex items-start snap-x snap-mandatory gap-6 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex items-start snap-x snap-proximity gap-6 overflow-x-auto overscroll-x-contain pb-2 touch-pan-x [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {loopItems.map((result, index) => (
             <article

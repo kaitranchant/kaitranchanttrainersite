@@ -121,6 +121,24 @@ export const results = [
   },
   {
     kind: "comparison",
+    name: "Brayden Pettit",
+    tag: "Varsity swimming",
+    context: "Strength & Conditioning before Sophomore Season",
+    beforeLabel: "Freshman",
+    afterLabel: "Sophomore",
+    rows: [
+      { label: "200 IM", before: "2:04.22", after: "2:00.41", direction: "up" },
+      { label: "100 breast", before: "1:04.16", after: "0:59.17", direction: "up" },
+      { label: "USA Club Swimming", before: "89th", after: "46th", direction: "up" },
+    ],
+    highlights: [
+      "Regional Swimmer of the Year",
+      "100 Breaststroke",
+      "State medalist",
+    ],
+  },
+  {
+    kind: "comparison",
     name: "Athens Girls Volleyball",
     tag: "Varsity Volleyball",
     context: "Team Strength & Conditioning between 23-24 and 24-25 seasons",

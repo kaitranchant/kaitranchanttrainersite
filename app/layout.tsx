@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { Archivo, Manrope } from "next/font/google";
 import { BookCtaTracker } from "@/components/BookCtaTracker";
@@ -41,6 +41,14 @@ export const metadata: Metadata = {
     description:
       "Peak when it counts. Competition prep and off-season S&C — in person across the Twin Tiers or coached online.",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({

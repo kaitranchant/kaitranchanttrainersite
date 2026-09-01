@@ -133,7 +133,7 @@ export const results = [
     ],
     highlights: [
       "Regional Swimmer of the Year",
-      "100 Breaststroke",
+      "100 Breaststroke School Record",
       "State medalist",
     ],
   },

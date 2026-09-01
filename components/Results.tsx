@@ -191,6 +191,7 @@ export function Results({ header }: { header: ReactNode }) {
   const activeIndexRef = useRef(0);
   const loopingRef = useRef(false);
   const scrollRafRef = useRef(0);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
   const [viewportHeight, setViewportHeight] = useState<number>();
   const loopItems = [...results, ...results];
 
@@ -251,6 +252,63 @@ export function Results({ header }: { header: ReactNode }) {
 
     const nextHeight = maxHeight + paddingBottom;
     setViewportHeight((prev) => (prev === nextHeight ? prev : nextHeight));
+  }
+
+  function loopSetWidth() {
+    const cards = getCards();
+    const count = results.length;
+    if (!cards[count]) return 0;
+    return cards[count].offsetLeft;
+  }
+
+  function normalizeLoop() {
+    const el = scrollerRef.current;
+    if (!el || loopingRef.current) return;
+
+    const width = loopSetWidth();
+    if (width <= 0) return;
+
+    if (el.scrollLeft >= width - 1) {
+      loopingRef.current = true;
+      el.scrollLeft -= width;
+      requestAnimationFrame(() => {
+        loopingRef.current = false;
+        syncActiveIndex();
+      });
+    }
+  }
+
+  function handleTouchStart(event: TouchEvent) {
+    const touch = event.touches[0];
+    if (!touch) return;
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+  }
+
+  function handleTouchEnd(event: TouchEvent) {
+    const el = scrollerRef.current;
+    const start = touchStartRef.current;
+    const touch = event.changedTouches[0];
+    touchStartRef.current = null;
+
+    if (!el || !start || !touch || loopingRef.current) return;
+
+    const deltaX = touch.clientX - start.x;
+    const deltaY = touch.clientY - start.y;
+
+    if (Math.abs(deltaX) < 48 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    const atStart = el.scrollLeft <= 8;
+    const atEnd = el.scrollLeft >= maxScroll - 8;
+
+    if (deltaX < 0 && atStart) {
+      scrollByCard(-1);
+      return;
+    }
+
+    if (deltaX > 0 && atEnd) {
+      scrollByCard(1);
+    }
   }
 
   function scrollToPhysical(index: number, behavior: ScrollBehavior = "smooth") {
@@ -322,6 +380,7 @@ export function Results({ header }: { header: ReactNode }) {
   }
 
   function handleScroll() {
+    normalizeLoop();
     syncActiveIndex();
     cancelAnimationFrame(scrollRafRef.current);
     scrollRafRef.current = requestAnimationFrame(() => syncViewportHeight());
@@ -343,11 +402,15 @@ export function Results({ header }: { header: ReactNode }) {
     });
 
     scroller.addEventListener("scroll", handleScroll, { passive: true });
+    scroller.addEventListener("touchstart", handleTouchStart, { passive: true });
+    scroller.addEventListener("touchend", handleTouchEnd, { passive: true });
     window.addEventListener("resize", syncViewportHeight);
 
     return () => {
       cancelAnimationFrame(scrollRafRef.current);
       scroller.removeEventListener("scroll", handleScroll);
+      scroller.removeEventListener("touchstart", handleTouchStart);
+      scroller.removeEventListener("touchend", handleTouchEnd);
       window.removeEventListener("resize", syncViewportHeight);
       resizeObserver.disconnect();
     };

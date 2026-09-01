@@ -121,19 +121,19 @@ export const results = [
   },
   {
     kind: "comparison",
-    name: "Brayden Pettit",
+    name: "Brayden P",
     tag: "Varsity swimming",
     context: "Strength & Conditioning before Sophomore Season",
     beforeLabel: "Freshman",
     afterLabel: "Sophomore",
     rows: [
       { label: "200 IM", before: "2:04.22", after: "2:00.41", direction: "up" },
-      { label: "100 breast", before: "1:04.16", after: "0:59.17", direction: "up" },
+      { label: "100 breast*", before: "1:04.16", after: "0:58.57", direction: "up" },
       { label: "USA Club Swimming", before: "89th", after: "46th", direction: "up" },
     ],
     highlights: [
       "Regional Swimmer of the Year",
-      "100 Breaststroke School Record",
+      "*100 Breaststroke School Record",
       "State medalist",
     ],
   },
